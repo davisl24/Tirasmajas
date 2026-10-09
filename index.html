@@ -4,6 +4,50 @@
 @media(max-width:900px){.wrap{width:calc(100% - 48px)}.header{left:24px;right:24px}.nav,.header>.btn{display:none}.menu-button{display:block;margin-left:auto}.mobile-nav.open{display:grid;position:fixed;top:92px;left:24px;right:24px;background:var(--paper);padding:18px;z-index:19;gap:9px;box-shadow:0 20px 40px #0003}.mobile-nav a{padding:12px;font-size:14px}.hero-content{padding-top:180px}.service-row{grid-template-columns:35px 1fr 24px}.service-row p{display:none}.evidence-layout,.quote-layout,.contact-panel{gap:35px}.project-grid{grid-template-columns:1fr 1fr}.project-grid .project:first-child .media-placeholder{height:440px}.two-col{gap:45px}.steps{grid-template-columns:repeat(2,1fr)}.step:nth-child(2){border:0}}
 @media(max-width:620px){.wrap{width:calc(100% - 36px)}.header{top:12px;left:12px;right:12px;padding:11px 18px}.mobile-nav.open{top:78px;left:12px;right:12px}.hero{min-height:100svh;align-items:end}.hero-content{padding:180px 0 95px}.hero h1,h1{font-size:clamp(38px,10.5vw,51px)}.hero-media:after{background:linear-gradient(0deg,#121411f5,#121411ab)}.photo-label{bottom:15px;right:16px;font-size:9px}.section{padding:72px 0}.section-heading{display:block;margin-bottom:26px}.section-heading h2{margin-bottom:12px}.service-row{padding:23px 0;gap:12px;grid-template-columns:25px 1fr 20px}.service-row h3{font-size:21px}.evidence-layout,.project-grid,.quote-layout,.contact-panel,.two-col,.info-grid,.page-grid{grid-template-columns:1fr;gap:28px}.project-grid .project:first-child{grid-row:auto}.project-grid .project:first-child .media-placeholder,.media-placeholder.tall{height:290px;min-height:290px}.project .media-placeholder{height:235px}.steps{grid-template-columns:1fr}.step,.step:not(:first-child){padding:23px 0;border-right:0;border-bottom:1px solid #6d7069;min-height:0}.step h3{margin:18px 0 9px}.contact-form{padding:23px}.page-hero{padding:155px 0 70px}.footer-main,.footer-bottom{display:block}.footer-links{margin-top:28px}.footer-bottom span{display:block;margin-bottom:9px}.footer-bottom{margin-top:50px}.hero-actions .btn{width:100%}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* V2 editorial refinement: clear hierarchy without generic cards */
+:root{--paper:#f6f5f1;--ink:#20211f;--line:#d7d7d0;--muted:#646861}
+body{letter-spacing:-.012em}
+.header{box-shadow:0 4px 22px #0000000c;border-color:#e9e8e3}
+.brand{letter-spacing:-.025em}
+.hero{min-height:91svh;background:#282925}
+.hero-content{padding-top:192px;padding-bottom:118px}
+.hero h1{font-size:clamp(44px,5.25vw,70px);line-height:1.105;letter-spacing:-.056em;max-width:800px;margin:21px 0}
+.hero-lead{max-width:445px}
+.hero-media{background:#383934}
+.hero-media:after{background:linear-gradient(90deg,#171815e8 0%,#171815ba 47%,#17181542 100%)}
+.photo-label{font-size:10px;color:#d0d1c8}
+.section{padding:clamp(68px,8vw,112px) 0}
+.section-heading{align-items:start;gap:56px;margin-bottom:41px}
+.section-heading h2{letter-spacing:-.048em}
+.section-heading .small{color:#8b8d84}
+.section-heading p{font-size:14px;line-height:1.7}
+.service-row{grid-template-columns:54px minmax(0,1fr) 240px 25px;padding:35px 0;gap:26px}
+.service-row h3{font-size:clamp(22px,2.5vw,31px);font-weight:600;letter-spacing:-.045em}
+.service-row:hover{padding-left:0;background:#f7f6f25c}
+.service-row .arrow{transition:transform .18s}
+.service-row:hover .arrow{transform:translate(3px,-3px)}
+.media-placeholder{background:#e5e4df;color:#73766f;min-height:380px;font-size:11px;letter-spacing:.04em;text-transform:none}
+.media-placeholder.tall{min-height:480px}
+.evidence-layout{grid-template-columns:.95fr 1.05fr;gap:clamp(40px,7vw,100px)}
+.evidence-items{margin-top:37px}
+.evidence-items div{font-size:15px;font-weight:500;line-height:1.5}
+.project-grid{grid-template-columns:1.28fr 1fr;gap:30px}
+.project-grid .project:first-child .media-placeholder{height:600px}
+.project .media-placeholder{height:257px}
+.project-meta{padding-top:13px}
+.dark{background:#1e201d}
+.steps{border-top:1px solid #666962}
+.step{min-height:155px}
+.step h3{font-size:19px;margin:32px 0 6px}
+.quote-layout{grid-template-columns:.7fr 1fr;gap:100px}
+.quote-placeholder{border-top:1px solid var(--line);border-bottom:0;padding:26px 0}
+.quote-placeholder p{font-size:17px;max-width:470px}
+.contact-form{background:#f7f6f2;padding:36px}
+.field input,.field select,.field textarea{border-radius:2px}
+.page-hero{background:#20221f}
+@media(max-width:900px){.service-row{grid-template-columns:37px minmax(0,1fr) 25px}.service-row p{display:none}.project-grid .project:first-child .media-placeholder{height:480px}.quote-layout{gap:35px}}
+@media(max-width:620px){.hero{min-height:92svh}.hero-content{padding-top:185px;padding-bottom:105px}.hero h1{font-size:clamp(37px,10.2vw,49px)}.section-heading{margin-bottom:30px}.service-row{grid-template-columns:28px minmax(0,1fr) 24px;padding:25px 0}.project-grid{grid-template-columns:1fr}.project-grid .project:first-child .media-placeholder{height:310px}.project .media-placeholder{height:255px}.media-placeholder.tall{min-height:290px}.quote-layout{grid-template-columns:1fr}.contact-form{padding:22px}}
 </style></head><body>
 <header class="header"><a class="brand" href="#/" aria-label="Tīras Mājas sākumlapa"><i aria-hidden="true"></i>TĪRAS MĀJAS</a><nav class="nav" id="nav" aria-label="Galvenā navigācija"></nav><a href="#/kontakti" class="btn">Pieteikt apsekošanu <span aria-hidden="true">↗</span></a><button class="menu-button" id="menuToggle" aria-label="Atvērt izvēlni" aria-expanded="false">☰</button></header><nav class="mobile-nav" id="mobileNav" aria-label="Mobilā navigācija"></nav>
 <main id="app"></main>
@@ -21,10 +65,10 @@ const form=()=>`<form class="contact-form" id="demoForm"><div class="field"><lab
 const contactsSection=()=>`<section class="section dark" id="pieteikums"><div class="wrap contact-panel"><div><div class="small" style="color:var(--yellow)">PIETEIKUMS</div><h2>Pieteikt apsekošanu</h2><p>Šeit būs apstiprinātā informācija par objekta apsekošanu un turpmāko saziņu.</p></div>${form()}</div></section>`;
 const home=()=>`<section class="hero"><div class="hero-media" aria-hidden="true"></div><div class="photo-label">Vieta uzņēmuma objekta fotogrāfijai</div><div class="wrap hero-content"><div class="small">INŽENIERKOMUNIKĀCIJAS / BŪVDARBI</div><h1>Kanalizācijas un inženierkomunikāciju izbūve</h1><p>Vieta īsam uzņēmuma pakalpojumu un apkalpošanas teritorijas skaidrojumam.</p><div class="hero-actions"><a href="#pieteikums" class="btn" data-scroll-form>Pieteikt apsekošanu ↗</a><a href="#/pakalpojumi" class="btn outline">Pakalpojumi ↗</a></div></div></section>
 <section class="section white" id="services"><div class="wrap">${label('01 / Pakalpojumi','Ko mēs darām','Izvēlies interesējošo darbu kategoriju.')}${serviceRows()}</div></section>
-<section class="section"><div class="wrap evidence-layout"><div>${label('02 / Par uzņēmumu','Kāpēc izvēlēties mūs')}<p class="muted">Vieta reāliem uzņēmuma faktiem, kas palīdz pieņemt lēmumu.</p><div class="evidence-items"><div>Darbu pieredze — jāapstiprina</div><div>Garantiju nosacījumi — jāapstiprina</div><div>Objekta apsekošana — jāapstiprina</div></div></div>${media('Vieta autentiskai darba fotogrāfijai','tall')}</div></section>
-<section class="section white"><div class="wrap">${label('03 / Paveiktie darbi','Darbi, kas runā paši','Kad būs pieejami uzņēmuma foto, šeit būs reālu objektu galerija.')}${projectGrid()}<div style="margin-top:30px"><a class="btn dark" href="#/musu-darbi">Visi darbi ↗</a></div></div></section>
+<section class="section"><div class="wrap evidence-layout"><div>${label('02 / Par uzņēmumu','Kāpēc izvēlēties mūs')}<p class="muted">Vieta reāliem uzņēmuma faktiem, kas palīdz pieņemt lēmumu.</p><div class="evidence-items"><div>Paveikto darbu piemēri</div><div>Informācija par darbu izpildi</div><div>Pieteikšanās un tāmes sagatavošana</div></div></div>${media('Vieta autentiskai darba fotogrāfijai','tall')}</div></section>
+<section class="section white"><div class="wrap">${label('03 / Paveiktie darbi','Paveiktie darbi','Kad būs pieejami uzņēmuma foto, šeit būs reālu objektu galerija.')}${projectGrid()}<div style="margin-top:30px"><a class="btn dark" href="#/musu-darbi">Visi darbi ↗</a></div></div></section>
 <section class="section dark"><div class="wrap">${label('04 / Sadarbība','Kā notiek darbi')}${process()}</div></section>
-<section class="section"><div class="wrap quote-layout"><div>${label('05 / Atsauksmes','Klientu pieredze')}</div><div class="quote-placeholder"><p>Vieta īstai klienta atsauksmei. Neizmantojam izdomātus citātus vai vērtējumus.</p><span class="small">Jāsaņem uzņēmuma materiāli</span></div></div></section>${contactsSection()}`;
+<section class="section"><div class="wrap quote-layout"><div>${label('05 / Atsauksmes','Klientu pieredze')}</div><div class="quote-placeholder"><p>Šeit ievietosim atsauksmes tikai tad, kad uzņēmums būs apstiprinājis īstus klientu komentārus.</p><span class="small">Jāsaņem uzņēmuma materiāli</span></div></div></section>${contactsSection()}`;
 const subHero=(crumb,title,desc)=>`<section class="page-hero"><div class="wrap"><div class="small">${crumb}</div><h1>${title}</h1><p>${desc}</p></div></section>`;
 const servicesPage=()=>subHero('Pakalpojumi','Mūsu pakalpojumi','Pārskats par darbu kategorijām. Precīzie apraksti tiks saskaņoti ar uzņēmumu.')+`<section class="section white"><div class="wrap">${serviceRows()}</div></section>`+contactsSection();
 const detailPage=slug=>{const s=services.find(x=>x.slug===slug);if(!s)return missing();return subHero('Pakalpojumi / '+s.name,s.name,'Šeit būs apstiprināts pakalpojuma apraksts un informācija par darbu veidiem.')+`<section class="section white"><div class="wrap two-col"><div>${label('Pakalpojums','Ko ietver darbi')}<ul class="detail-items"><li>Darbu veids — jāprecizē</li><li>Darbu apjoms — jāprecizē</li><li>Objekta prasības — jāprecizē</li></ul></div>${media('Vieta šī pakalpojuma darba foto','tall')}</div></section><section class="section"><div class="wrap">${label('Paveiktie darbi','Atbilstošie projekti')}${projectGrid(2)}</div></section><section class="section dark"><div class="wrap">${label('Process','Kā notiek sadarbība')}${process()}</div></section>`+contactsSection()};

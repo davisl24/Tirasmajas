@@ -8,22 +8,25 @@
 @media(max-width:850px){.container{width:min(100% - 32px,1150px)}.nav{height:64px}.links,.nav>.cta{display:none}.hamb{display:block;margin-left:auto}.nav-shell{top:7px;padding-top:8px}.hero{grid-template-columns:1fr;min-height:auto;padding:78px 0 70px;gap:45px}.hero h1{font-size:59px;letter-spacing:-3.5px}.hero-img{height:340px}.section{padding:75px 0}.grid.four,.grid.three{grid-template-columns:repeat(2,1fr)}.process{grid-template-columns:repeat(2,1fr)}.contact-block{grid-template-columns:1fr;padding:37px;gap:30px}.split{grid-template-columns:1fr;gap:28px}.page-hero{padding:75px 0 45px}.end-cta{padding:35px;align-items:start;flex-direction:column}#mobile-menu.show{display:flex;flex-direction:column;gap:5px;background:white;position:absolute;left:16px;right:16px;top:82px;padding:16px;border:1px solid var(--line);border-radius:21px;box-shadow:0 20px 45px #0001}#mobile-menu a{padding:10px 13px;border-radius:8px}}
 @media(max-width:530px){.hero h1{font-size:48px}.hero-img{height:280px}.grid.four,.grid.three,.grid.two,.process{grid-template-columns:1fr}.service .placeholder{height:190px}.section-head h2{font-size:37px}.contact-block{padding:28px 17px;border-radius:25px}.form{padding:18px}.footer-top,.foot-bottom{flex-direction:column;align-items:flex-start}.overlay{bottom:10px;left:10px;font-size:10px}.page-hero h1{font-size:48px}.end-cta h2{font-size:28px}}
 
-/* Approved hero A: full-screen media placeholder, no stock content. */
-.full-hero{position:relative;min-height:100svh;margin-top:-85px;display:flex;align-items:flex-end;overflow:hidden;background:#ced8d0;color:#fff}
-.full-hero-media{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(127deg,#81978a 0%,#a4b6a8 55%,#c3d1c5 100%);color:#e2eae3}
-.full-hero-media:after{content:"";position:absolute;inset:23px;border:1px dashed #e5eee477;pointer-events:none}
-.full-hero-media span{font-size:11px;letter-spacing:2px;font-weight:600;text-align:center;padding:20px;opacity:.88}
-.full-hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,#10251ec4 0%,#10251e59 55%,transparent 100%),linear-gradient(0deg,#0d221d63,transparent 50%)}
-.full-hero-inner{position:relative;z-index:1;width:min(1150px,calc(100% - 54px));padding-top:190px;padding-bottom:110px}
-.full-hero-copy{max-width:700px}
-.full-hero .eyebrow{color:#c7dacd}
-.full-hero h1{font-size:clamp(56px,7.5vw,108px);font-weight:600;line-height:1.02;letter-spacing:-.065em;margin:21px 0}
-.full-hero p{max-width:490px;color:#e4ebe5;font-size:16px;line-height:1.65}
-.full-hero .actions{margin-top:30px}
-.full-hero .cta{background:#f5f7f3;color:#1b372a}
-.full-hero .cta.secondary{background:transparent;color:white;border-color:#ffffff91}
-@media(max-width:850px){.full-hero{min-height:100svh;margin-top:-79px}.full-hero-inner{padding-top:165px;padding-bottom:76px;width:min(100% - 32px,1150px)}.full-hero h1{font-size:clamp(51px,11vw,76px)}}
-@media(max-width:530px){.full-hero-inner{padding-bottom:62px}.full-hero h1{font-size:52px}.full-hero p{font-size:15px}.full-hero-shade{background:linear-gradient(0deg,#10251ee3 0%,#10251e52 75%,#10251e38 100%)}.full-hero-media:after{inset:12px}}
+/* Hero approved direction: full-bleed photo, brand black/yellow, no stock assets */
+.full-hero{position:relative;min-height:100svh;margin-top:-85px;display:flex;align-items:center;overflow:hidden;background:#282a29;color:#fff}
+.full-hero-media{position:absolute;inset:0;background:#313332}
+.full-hero-media span{position:absolute;right:32px;bottom:28px;font-size:10px;letter-spacing:1.5px;color:#c1c5c1;text-transform:uppercase}
+.full-hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.48),rgba(0,0,0,.08) 78%)}
+.full-hero-inner{position:relative;z-index:1;width:min(1150px,calc(100% - 54px));padding-top:145px;padding-bottom:72px}
+.full-hero-copy{max-width:590px}
+.full-hero .eyebrow{color:#ffc21a;letter-spacing:1.6px}
+.full-hero h1{font-size:clamp(52px,5vw,76px);font-weight:650;line-height:1.08;letter-spacing:-.052em;margin:20px 0 18px}
+.full-hero p{max-width:455px;color:#e0e0de;font-size:16px;line-height:1.65}
+.full-hero .actions{margin-top:29px}
+.full-hero .cta{background:#ffc21a;color:#171717;border:1px solid #ffc21a}
+.full-hero .cta:hover{background:#edb20d}
+.full-hero .cta.secondary{background:transparent;color:#fff;border-color:#ffffff75}
+.nav-shell:has(+ main .full-hero) .nav .mark{background:#171717;color:#ffc21a}
+.nav-shell:has(+ main .full-hero) .nav>.cta{background:#ffc21a;color:#181818}
+.nav-shell:has(+ main .full-hero) .nav .links a.active{color:#171717}
+@media(max-width:850px){.full-hero{min-height:100svh;margin-top:-79px}.full-hero-inner{padding-top:135px;padding-bottom:65px;width:min(100% - 32px,1150px)}.full-hero h1{font-size:clamp(50px,8vw,66px)}}
+@media(max-width:530px){.full-hero-inner{padding-top:150px;padding-bottom:80px}.full-hero h1{font-size:clamp(46px,12vw,58px)}.full-hero p{font-size:15px}.full-hero-shade{background:linear-gradient(0deg,rgba(0,0,0,.66),rgba(0,0,0,.24))}.full-hero-media span{right:16px;bottom:19px;font-size:9px}.full-hero .actions{gap:8px}}
 </style>
 </head>
 <body><div class="nav-shell container"><nav class="nav"><a href="#/" class="logo"><span class="mark">⌂</span>TĪRAS MĀJAS</a><div class="links" id="navlinks"></div><a class="cta" href="#/kontakti">Pieteikt apsekošanu ↗</a><button class="hamb" onclick="document.getElementById('mobile-menu').classList.toggle('show')" aria-label="Atvērt izvēlni">☰</button></nav><div id="mobile-menu"></div></div><main id="app"></main><footer class="footer"><div class="container"><div class="footer-top"><a class="logo" href="#/"><span class="mark">⌂</span>TĪRAS MĀJAS</a><div class="foot-links"><a href="#/">Sākums</a><a href="#/pakalpojumi">Pakalpojumi</a><a href="#/musu-darbi">Mūsu darbi</a><a href="#/kontakti">Kontakti</a></div></div><div class="foot-bottom"><span>© Tīras Mājas — demo struktūra</span><span>Kontaktinformācija · Juridiskā informācija · Privātums</span></div></div></footer><div class="overlay"><strong>DEMO</strong> · struktūra bez gala satura</div><div id="toast"></div>

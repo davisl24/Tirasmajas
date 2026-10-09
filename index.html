@@ -8,26 +8,27 @@
 @media(max-width:850px){.container{width:min(100% - 32px,1150px)}.nav{height:64px}.links,.nav>.cta{display:none}.hamb{display:block;margin-left:auto}.nav-shell{top:7px;padding-top:8px}.hero{grid-template-columns:1fr;min-height:auto;padding:78px 0 70px;gap:45px}.hero h1{font-size:59px;letter-spacing:-3.5px}.hero-img{height:340px}.section{padding:75px 0}.grid.four,.grid.three{grid-template-columns:repeat(2,1fr)}.process{grid-template-columns:repeat(2,1fr)}.contact-block{grid-template-columns:1fr;padding:37px;gap:30px}.split{grid-template-columns:1fr;gap:28px}.page-hero{padding:75px 0 45px}.end-cta{padding:35px;align-items:start;flex-direction:column}#mobile-menu.show{display:flex;flex-direction:column;gap:5px;background:white;position:absolute;left:16px;right:16px;top:82px;padding:16px;border:1px solid var(--line);border-radius:21px;box-shadow:0 20px 45px #0001}#mobile-menu a{padding:10px 13px;border-radius:8px}}
 @media(max-width:530px){.hero h1{font-size:48px}.hero-img{height:280px}.grid.four,.grid.three,.grid.two,.process{grid-template-columns:1fr}.service .placeholder{height:190px}.section-head h2{font-size:37px}.contact-block{padding:28px 17px;border-radius:25px}.form{padding:18px}.footer-top,.foot-bottom{flex-direction:column;align-items:flex-start}.overlay{bottom:10px;left:10px;font-size:10px}.page-hero h1{font-size:48px}.end-cta h2{font-size:28px}}
 
-/* Tīras Mājas hero demo: restrained industrial identity */
-.full-hero{position:relative;min-height:100svh;margin-top:-85px;display:flex;align-items:center;overflow:hidden;background:#292a27;color:#f7f6f2}
-.full-hero-media{position:absolute;inset:0;background:#363732}
-.full-hero-media:before{content:"";position:absolute;inset:0;background:linear-gradient(95deg,rgba(19,20,18,.78) 0%,rgba(19,20,18,.31) 52%,rgba(19,20,18,0) 100%)}
-.full-hero-media span{position:absolute;right:36px;bottom:25px;font-size:10px;letter-spacing:.11em;color:#cbc9bd;text-transform:uppercase}
+/* Hero demo — editorial composition, media-ready without stock or AI images. */
+.full-hero{position:relative;min-height:100svh;margin-top:-85px;display:flex;align-items:center;overflow:hidden;background:#1a1b19;color:#f7f6f2}
+.full-hero-media{position:absolute;inset:0;background:linear-gradient(110deg,#151614 4%,#252623 56%,#34342e 100%)}
+.full-hero-media:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#10110ff2 0%,#121310cc 38%,#15161333 76%,transparent 100%);z-index:1}
+.full-hero-media:after{content:"";position:absolute;top:14%;right:8%;height:70%;width:39%;border:1px solid #e5e5d01c;background:repeating-linear-gradient(135deg,transparent 0px,transparent 28px,#ffffff04 29px,#ffffff04 30px);border-radius:2px}
+.full-hero-media span{position:absolute;right:12%;top:51%;transform:translateY(-50%);width:27%;font-size:10px;line-height:1.9;letter-spacing:.19em;font-weight:600;text-align:center;color:#bbbcb285;text-transform:uppercase;z-index:2}
 .full-hero-shade{display:none}
-.full-hero-inner{position:relative;z-index:1;width:min(1150px,calc(100% - 54px));padding-top:160px;padding-bottom:96px}
-.full-hero-copy{max-width:660px}
-.full-hero .eyebrow{font-size:11px;letter-spacing:.11em;color:#f9bd16;font-weight:650}
-.full-hero h1{font-family:"Manrope","Segoe UI",sans-serif;font-size:clamp(49px,5vw,74px);font-weight:550;line-height:1.105;letter-spacing:-.055em;max-width:650px;margin:20px 0 20px;text-wrap:balance}
-.full-hero p{max-width:450px;color:#dadbd5;font-size:16px;line-height:1.7;letter-spacing:-.01em}
-.full-hero .actions{margin-top:32px;gap:13px}
-.full-hero .cta{background:#f9bd16;color:#1a1a18;border:1px solid #f9bd16;border-radius:12px;padding:15px 22px}
-.full-hero .cta:hover{background:#ffcb39}
-.full-hero .cta.secondary{background:transparent;color:#f7f6f2;border-color:#bebdb6;border-radius:12px}
+.full-hero-inner{position:relative;z-index:2;width:min(1150px,calc(100% - 54px));padding-top:172px;padding-bottom:116px}
+.full-hero-copy{max-width:720px}
+.full-hero .eyebrow{font-size:11px;letter-spacing:.12em;color:#f9bd16;font-weight:650}
+.full-hero h1{font-family:"Manrope","Segoe UI",sans-serif;font-size:clamp(43px,4.35vw,66px);font-weight:600;line-height:1.13;letter-spacing:-.052em;max-width:740px;margin:27px 0 24px;text-wrap:balance}
+.full-hero p{max-width:405px;color:#c4c6c0;font-size:15px;line-height:1.75;letter-spacing:-.005em}
+.full-hero .actions{margin-top:35px;gap:12px}
+.full-hero .cta{background:#f9bd16;color:#1a1a18;border:1px solid #f9bd16;border-radius:11px;padding:15px 23px}
+.full-hero .cta:hover{background:#ffd04d}
+.full-hero .cta.secondary{background:transparent;color:#f7f6f2;border-color:#9f9f95;border-radius:11px}
 .nav-shell:has(+ main .full-hero) .nav .mark{background:#1a1a18;color:#f9bd16}
 .nav-shell:has(+ main .full-hero) .nav>.cta{background:#f9bd16;color:#1a1a18}
 .nav-shell:has(+ main .full-hero) .nav .links a.active{color:#1a1a18}
-@media(max-width:850px){.full-hero{min-height:100svh;margin-top:-79px}.full-hero-inner{width:min(100% - 32px,1150px);padding-top:145px;padding-bottom:85px}.full-hero h1{font-size:clamp(47px,7.5vw,65px)}}
-@media(max-width:530px){.full-hero-inner{padding-top:154px;padding-bottom:78px}.full-hero h1{font-size:clamp(44px,11vw,54px)}.full-hero p{font-size:15px}.full-hero-media:before{background:linear-gradient(0deg,rgba(19,20,18,.82),rgba(19,20,18,.28))}.full-hero-media span{right:16px;bottom:19px;font-size:9px}.full-hero .actions{gap:9px}.full-hero .cta{padding:13px 16px}}
+@media(max-width:850px){.full-hero{min-height:100svh;margin-top:-79px}.full-hero-inner{width:min(100% - 32px,1150px);padding-top:158px;padding-bottom:96px}.full-hero h1{font-size:clamp(43px,6vw,59px);max-width:620px}.full-hero-media:after{right:3%;width:52%;opacity:.48}.full-hero-media span{right:7%;width:44%}}
+@media(max-width:530px){.full-hero{min-height:100svh;align-items:flex-end}.full-hero-inner{padding-top:160px;padding-bottom:87px}.full-hero h1{font-size:clamp(39px,10vw,50px);line-height:1.16;margin:21px 0}.full-hero p{font-size:14px}.full-hero-media:before{background:linear-gradient(0deg,#10110ffa,#10110fd6 45%,#10110f88 100%)}.full-hero-media:after{top:15%;right:7%;width:86%;height:40%;opacity:.24}.full-hero-media span{top:30%;right:12%;width:76%;font-size:9px}.full-hero .actions{gap:9px;flex-wrap:wrap}.full-hero .cta{padding:13px 15px}}
 </style>
 </head>
 <body><div class="nav-shell container"><nav class="nav"><a href="#/" class="logo"><span class="mark">⌂</span>TĪRAS MĀJAS</a><div class="links" id="navlinks"></div><a class="cta" href="#/kontakti">Pieteikt apsekošanu ↗</a><button class="hamb" onclick="document.getElementById('mobile-menu').classList.toggle('show')" aria-label="Atvērt izvēlni">☰</button></nav><div id="mobile-menu"></div></div><main id="app"></main><footer class="footer"><div class="container"><div class="footer-top"><a class="logo" href="#/"><span class="mark">⌂</span>TĪRAS MĀJAS</a><div class="foot-links"><a href="#/">Sākums</a><a href="#/pakalpojumi">Pakalpojumi</a><a href="#/musu-darbi">Mūsu darbi</a><a href="#/kontakti">Kontakti</a></div></div><div class="foot-bottom"><span>© Tīras Mājas — demo struktūra</span><span>Kontaktinformācija · Juridiskā informācija · Privātums</span></div></div></footer><div class="overlay"><strong>DEMO</strong> · struktūra bez gala satura</div><div id="toast"></div>

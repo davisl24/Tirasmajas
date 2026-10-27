@@ -294,3 +294,14 @@ body.first-load .hero-logo-preview{animation:heroLogoIntro 900ms cubic-bezier(.2
 @media(max-width:900px){.hero-logo-preview{right:12px;width:clamp(95px,15vw,135px)}}
 @media(max-width:760px){.hero-logo-preview{position:relative;top:auto;right:auto;transform:none;width:clamp(95px,24vw,135px);margin:22px 0 0 auto}.hero-inner{padding-bottom:58px}}
 @media(prefers-reduced-motion:reduce){body.first-load .hero-logo-preview{animation:none}}
+
+
+/* The Latvia silhouette needs more room than generic square icons. */
+.about-facts>div:nth-child(3) h3::before{
+  width:39px;height:32px;left:-5px;top:0;
+  background-size:38px 30px;
+  background-repeat:no-repeat;
+  opacity:1;
+}
+.about-facts>div:nth-child(3) h3{padding-left:41px}
+@media(max-width:760px){.about-facts>div:nth-child(3) h3::before{width:36px;height:29px;background-size:36px 27px}}

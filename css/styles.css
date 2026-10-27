@@ -259,3 +259,10 @@
 .about-facts h3{padding-left:41px;min-height:32px}
 .about-facts p{margin-left:41px}
 @media(max-width:760px){.about-facts h3{padding-left:41px}.about-facts p{margin-left:41px}}
+
+
+/* Engineering illustration style: fine, dark, unframed 24px pictograms */
+.nav-service-icon{width:28px;height:29px;flex-basis:28px;background:none;border:0}
+.nav-service-icon svg{width:24px;height:24px;stroke-width:1.35}
+.nav-service-menu a{gap:12px}
+.about-facts h3::before{background-color:transparent;border:0;border-radius:0}

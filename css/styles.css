@@ -297,3 +297,86 @@ a.btn[href="#/kontakti"]:hover,a.btn[href="#/kontakti"].dark:hover{background:#F
 .about-facts>div:not(:last-child){border-bottom:1px solid rgba(31,38,33,.12)}
 .detail-list li{border-color:rgba(31,38,33,.10)}
 .about-link{text-decoration:none}
+
+
+/* MOBILE QA PASS — 320px to tablet; desktop remains unchanged. */
+@media(max-width:850px){
+ html,body{max-width:100%;overflow-x:clip}
+ #app,main,section,.wrap,.footer,.footer-columns{min-width:0}
+ img,svg,video{max-width:100%}
+ .wrap{width:calc(100% - 40px);max-width:100%}
+ .header{top:10px;left:10px;right:10px;width:auto;min-height:60px;padding:7px 10px 7px 13px;gap:9px;display:flex;align-items:center;border-radius:40px}
+ .header .brand{font-size:12px;letter-spacing:-.04em;min-width:0;flex-shrink:1;white-space:nowrap}
+ .header .brand-logo{width:36px;height:36px;flex:none}
+ .header .nav,.header .header-cta{display:none}
+ .header .header-phone{margin:0 0 0 auto;width:40px;height:40px;flex:0 0 40px}
+ .header .menu-button{display:flex;flex:0 0 40px;width:40px;height:40px}
+ .mobile-nav.open{top:79px;left:10px;right:10px;max-height:calc(100dvh - 91px);overflow-y:auto;overscroll-behavior:contain;padding:10px 12px;border-radius:18px}
+ .mobile-nav a{min-height:45px;display:flex;align-items:center}
+ .mobile-nav .btn{justify-content:center;width:100%;min-height:48px}
+ .hero{min-height:88svh;min-height:88dvh;align-items:center}
+ .hero-inner{width:calc(100% - 40px);padding-top:132px;padding-bottom:85px}
+ .hero h1{font-size:clamp(38px,9vw,68px);line-height:1.08;letter-spacing:-.06em;max-width:100%;overflow-wrap:normal}
+ .hero-intro{width:100%;max-width:100%;margin-top:25px}
+ .hero-actions{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:flex-start;gap:11px}
+ .hero-actions .btn{min-height:48px;font-size:12px;padding:12px 17px;max-width:100%;white-space:normal;text-align:center}
+ .subhero{padding:142px 0 67px;min-height:0}
+ .subhero h1{font-size:clamp(38px,9vw,66px);line-height:1.1;max-width:100%;overflow-wrap:anywhere}
+ .section{padding-top:68px;padding-bottom:68px}
+ .section h2,.about-heading{font-size:clamp(31px,7.5vw,48px);line-height:1.13;overflow-wrap:anywhere}
+ .section-head{gap:17px}
+ .service-list,.folder-grid,.services:not(.services-directory) .folder-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+ .folder-grid .folder-card,.services:not(.services-directory) .folder-grid .folder-card{min-width:0}
+ .folder-grid .folder-panel{min-height:176px;padding:21px 17px 22px}
+ .folder-card h3{font-size:17px}
+ .about-layout,.contact-layout,.detail-layout,.process-layout{grid-template-columns:minmax(0,1fr);gap:30px}
+ .about-photo{width:100%;min-height:310px;border-radius:18px}
+ .about-intro{min-width:0}
+ .about-facts{min-width:0}
+ .about-facts h3{font-size:clamp(17px,4vw,21px)}
+ .about-facts p{font-size:13px}
+ .works-grid,.works-grid.full{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:15px}
+ .work-item,.work-media{min-width:0}
+ .works-link,.works-page-action{margin-top:22px}
+ .review-grid{grid-template-columns:minmax(0,1fr);gap:13px}
+ .review-card{min-width:0}
+ .contact-form{grid-template-columns:minmax(0,1fr);padding:22px;min-width:0}
+ .contact-form input,.contact-form textarea,.contact-form select,.contact-form button{min-width:0;max-width:100%;width:100%}
+ .footer-columns{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .footer-bottom{flex-direction:column;align-items:flex-start;gap:13px}
+ .footer-legal{gap:15px}
+ .closing-cta .wrap{gap:22px}
+}
+@media(max-width:560px){
+ .wrap{width:calc(100% - 32px)}
+ .hero-inner{width:calc(100% - 32px)}
+ .hero{background-position:center,60% center}
+ .hero h1{font-size:clamp(36px,9.3vw,51px)}
+ .hero-actions{gap:9px}
+ .service-list,.folder-grid,.services:not(.services-directory) .folder-grid{grid-template-columns:minmax(0,1fr);gap:14px}
+ .folder-grid .folder-visual{min-height:165px}
+ .folder-grid .folder-panel{min-height:0;padding:21px 19px 25px}
+ .works-grid,.works-grid.full{grid-template-columns:minmax(0,1fr)}
+ .work-media,.works-grid.full .work-item:first-child .work-media{height:auto;aspect-ratio:1.35;min-height:0}
+ .about-photo{min-height:280px;background-position:center 47%}
+ .footer-columns{grid-template-columns:minmax(0,1fr);gap:33px}
+ .footer{padding-top:55px}
+ .process-layout{gap:30px}
+ .contact-form{padding:17px;border-radius:12px}
+ .closing-cta h2{font-size:clamp(32px,8.2vw,43px)}
+ .works-page-action .btn,.works-link .btn{max-width:100%;white-space:normal;text-align:center}
+}
+@media(max-width:375px){
+ .header{left:7px;right:7px;top:7px;padding-left:9px;padding-right:7px;gap:6px}
+ .header .brand{font-size:11px}
+ .header .brand-logo{width:32px;height:32px}
+ .header .header-phone{width:37px;height:37px;flex-basis:37px}
+ .header .menu-button{width:37px;height:37px;flex-basis:37px}
+ .mobile-nav.open{top:70px;left:7px;right:7px}
+ .hero h1{font-size:clamp(33px,9vw,38px)}
+ .hero-inner{padding-top:112px}
+ .hero-actions .btn{font-size:11px;padding:11px 13px}
+ .about-facts h3{padding-left:37px}
+ .about-facts p{margin-left:37px}
+ .section h2,.about-heading{font-size:32px}
+}

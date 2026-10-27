@@ -38,6 +38,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();
 function updateProcessProgress(){const wrap=document.querySelector(".process-steps");if(!wrap)return;const steps=[...wrap.querySelectorAll(".process-step")];if(!steps.length)return;const first=steps[0].offsetTop+10,last=steps[steps.length-1].offsetTop+10;const marker=window.innerHeight*.52-wrap.getBoundingClientRect().top;const nearest=steps.reduce((best,step,i)=>Math.abs(step.offsetTop+10-marker)<Math.abs(steps[best].offsetTop+10-marker)?i:best,0);wrap.style.setProperty("--active-step",String(nearest));wrap.style.setProperty("--dot-y",Math.max(first,Math.min(last,steps[nearest].offsetTop+10))+"px");steps.forEach((step,i)=>step.classList.toggle("is-active",i===nearest));}
 window.addEventListener("scroll",updateProcessProgress,{passive:true});window.addEventListener("resize",updateProcessProgress);
 document.addEventListener("click",function(event){const link=event.target.closest('a[href^="#/"]');if(!link)return;const to=link.getAttribute("href");if(!to)return;event.preventDefault();if(location.hash!==to){location.hash=to;}else{render();}});
+document.body.classList.add("first-load");
 window.addEventListener("hashchange",render);
 render();
 })();

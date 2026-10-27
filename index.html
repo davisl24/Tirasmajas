@@ -132,6 +132,15 @@
 .review-card{transition:transform .2s ease,box-shadow .2s ease}.review-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px #14221718}.review-person{display:flex;align-items:center;gap:10px}.review-avatar{display:grid;place-items:center;border-radius:50%;width:38px;height:38px;background:#e6e8e1;color:var(--ink);font-weight:700}
 .nav-service-group{position:relative;display:flex;align-items:center;height:48px}.nav-service-menu{position:absolute;top:100%;left:-20px;min-width:250px;padding:10px;background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:0 14px 32px #0002;opacity:0;visibility:hidden;transform:translateY(7px)}.nav-service-group:hover .nav-service-menu,.nav-service-group:focus-within .nav-service-menu{opacity:1;visibility:visible;transform:none}.nav-service-menu a{display:block;padding:10px 12px;white-space:nowrap}.nav-service-menu a:hover{background:#e7eae1}
 @media(max-width:850px){.nav-service-group{display:none}.folder-grid .folder-panel{height:auto;min-height:175px}}@media(prefers-reduced-motion:reduce){.review-card{transition:none}}.service-note{margin-top:22px;color:var(--muted);font-size:13px;max-width:420px}.contact-legacy-note{margin-top:15px;color:#cbd4ca;font-size:13px;max-width:380px}
+
+/* Hero photography is a real external asset; text stays selectable HTML. */
+.hero{background-color:#17211d;background-image:linear-gradient(90deg,rgba(13,21,19,.93) 0%,rgba(13,21,19,.80) 32%,rgba(13,21,19,.30) 68%,rgba(13,21,19,.12) 100%),url("./assets/tiras-majas-hero.webp");background-position:center,center 52%;background-size:cover;background-repeat:no-repeat}
+.hero:before,.hero:after{display:none}
+.hero-inner{width:100%}
+.hero h1{max-width:820px;text-shadow:0 2px 20px rgba(0,0,0,.16)}
+.hero-intro{max-width:1010px}
+.hero-intro p{color:#f0f1ed;text-shadow:0 1px 8px #0009}
+@media(max-width:760px){.hero{min-height:82svh;background-image:linear-gradient(90deg,rgba(13,21,19,.86),rgba(13,21,19,.52)),url("./assets/tiras-majas-hero.webp");background-position:center,62% center}.hero-inner{padding:145px 0 90px}.hero h1{max-width:650px}}
 </style></head>
 <body>
 <header class="header">

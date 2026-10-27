@@ -184,3 +184,18 @@
 .closing-cta .wrap{display:flex;flex-direction:column;align-items:center;gap:26px}
 .closing-cta h2{max-width:780px;margin:0;font-size:clamp(36px,5vw,64px);line-height:1.15;letter-spacing:-.055em}
 @media(max-width:850px){.header-phone{margin-left:auto}.closing-cta{padding:85px 0}}
+
+
+/* Polished consistent icon and CTA system */
+.about-facts>div::before{content:none!important;display:none!important}
+.about-facts>div{padding-left:0}
+.about-facts h3{position:relative;padding-left:47px;min-height:28px;display:flex;align-items:center}
+.about-facts h3::before{content:"";position:absolute;left:0;top:0;width:29px;height:29px;border:1px solid #b8c1b7;border-radius:9px;background-color:#dce2da;background-position:center;background-size:19px 19px;background-repeat:no-repeat;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23212b24' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 3h8M10 3v3M14 3v3M5 10l7-4 7 4v9H5z'/%3E%3Cpath d='m9 14 2 2 4-4'/%3E%3C/svg%3E")}
+.about-facts>div:nth-child(2) h3::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23212b24' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19h16M4 9h16M7 9v10M17 9v10M4 9l8-5 8 5'/%3E%3C/svg%3E")}
+.about-facts>div:nth-child(3) h3::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23212b24' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M3 12h18M12 3c-4 4-4 14 0 18M12 3c4 4 4 14 0 18'/%3E%3C/svg%3E")}
+.about-facts p{margin-left:47px}
+.nav-service-icon{background:#edf0ea;border:1px solid #e0e5dc}
+.nav-service-icon svg{display:block}
+.closing-cta .btn.closing-primary{background:var(--accent);color:#1e2620;border-color:var(--accent)}
+.closing-cta .btn.closing-primary:hover{background:#f9d96b;border-color:#f9d96b}
+@media(max-width:760px){.about-facts h3{padding-left:44px}.about-facts p{margin-left:44px}}

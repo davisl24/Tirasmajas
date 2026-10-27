@@ -142,3 +142,20 @@
 .hero h1{max-width:900px;font-size:clamp(50px,5.6vw,82px);line-height:1.09;letter-spacing:-.06em}
 .hero-intro{max-width:900px}
 @media(max-width:760px){.hero-inner{width:calc(100% - 36px);padding-top:150px;padding-bottom:105px}.hero h1{font-size:clamp(39px,9.2vw,58px);max-width:100%}.hero-intro{margin-top:28px;flex-direction:column;align-items:flex-start;gap:22px}.hero-actions{gap:10px}}
+
+
+/* October layout refinements */
+.hero-intro{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:24px;max-width:540px}
+.hero-intro p{max-width:520px;margin:0}
+.hero-actions{display:flex;align-items:center;justify-content:flex-start;gap:12px}
+.header-phone{display:inline-grid;place-items:center;width:42px;height:42px;flex:none;border:1px solid rgba(26,34,28,.17);border-radius:50%;transition:background .2s,border-color .2s}
+.header-phone:hover,.header-phone:focus-visible{background:#e3e7df;border-color:#9fa79e}
+.contact-phone-link{display:inline-flex;align-items:center;gap:10px}
+.phone-icon{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid currentColor;font-size:17px}
+.nav-service-menu a{display:flex;align-items:center;gap:12px}
+.nav-service-icon{display:grid;place-items:center;flex:none;width:27px;height:27px;border-radius:8px;background:#e9eae4;color:#2b342e;font-size:16px}
+.about-intro h2{margin:0 0 30px}
+.about-photo{margin-top:0}
+.about-facts>div{position:relative;padding-left:46px}
+.about-facts>div::before{content:"";position:absolute;left:0;top:24px;width:28px;height:28px;background-color:#d6dcd2;border:1px solid #b9c1b5;border-radius:8px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23212821' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-12M8 7h8M7 17h10'/%3E%3C/svg%3E");background-size:18px;background-position:center;background-repeat:no-repeat}
+@media(max-width:760px){.hero-intro{gap:20px;align-items:flex-start}.hero-actions{flex-wrap:wrap}.header-phone{width:38px;height:38px}.about-facts>div{padding-left:44px}}

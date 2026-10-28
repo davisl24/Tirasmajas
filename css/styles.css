@@ -69,7 +69,7 @@
 .subhero .wrap{text-align:center}
 .subhero h1{margin-left:auto;margin-right:auto}
 .btn.horizontal-arrow .btn-arrow{font-size:0}
-.btn.horizontal-arrow .btn-arrow:after{content:"→";font-size:19px}
+.btn.horizontal-arrow .btn-arrow:after{content:none}
 .btn.no-arrow .btn-arrow{display:none}
 .reviews-demo{background:var(--paper)}
 .review-empty{border-top:1px solid var(--line);padding:35px 0 0;max-width:650px}
@@ -462,3 +462,7 @@ a.btn[href="#/kontakti"]:hover,a.btn[href="#/kontakti"].dark:hover{background:#F
 .detail-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 27px;width:27px;height:27px;color:#25352b}
 .detail-icon svg{display:block;width:23px;height:23px;flex:none}
 @media(max-width:560px){.detail-list{gap:20px}.detail-list li{gap:13px;font-size:16px}.detail-icon{flex-basis:25px;width:25px}}
+
+/* Arrow icons are inline SVG, never Unicode glyphs (consistent on iOS Safari). */
+.folder-arrow svg,.btn-arrow svg,.about-link svg,.works-facebook svg,.next-project svg{display:inline-block;vertical-align:middle;flex:none;width:18px;height:18px}
+.next-project a{display:inline-flex;align-items:center;gap:8px}

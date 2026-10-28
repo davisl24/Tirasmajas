@@ -380,3 +380,50 @@ a.btn[href="#/kontakti"]:hover,a.btn[href="#/kontakti"].dark:hover{background:#F
  .about-facts p{margin-left:37px}
  .section h2,.about-heading{font-size:32px}
 }
+
+
+/* Final section alignment and mobile corrections */
+.about .about-layout{align-items:start}
+.about .about-heading{margin-bottom:clamp(28px,4vw,48px)}
+.about .about-intro{display:flex;flex-direction:column;gap:18px}
+.about .about-photo{margin:0;display:block;min-height:310px;aspect-ratio:1.63;border-radius:18px}
+.about .about-link{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:0;font-size:14px}
+.about .about-link span{font-size:18px;transition:transform .2s}
+.about .about-link:hover span{transform:translateX(3px)}
+.about-facts>div,.about-facts>div:not(:last-child){border:0!important}
+.about-facts>div{padding-top:16px;padding-bottom:18px}
+.about-facts>div:first-child{padding-top:0}
+.about-facts h3{margin-bottom:7px}
+.detail-layout{align-items:start}
+.detail-layout .detail-details{min-width:0}
+.detail-list{margin-top:0}
+.detail-list li{border:0!important;padding-top:12px;padding-bottom:12px}
+.detail-actions{display:flex;justify-content:flex-end;margin-top:18px}
+.detail-actions .btn{min-height:48px}
+.detail-layout .next-project{margin-top:24px}
+@media(max-width:850px){
+ .about .about-photo{min-height:0;aspect-ratio:1.55;background-position:center 46%}
+ .about .about-intro{gap:16px}
+ .about .about-layout{gap:28px}
+ .detail-layout{gap:22px}
+ .detail-actions{justify-content:flex-end}
+ .hero{background-image:linear-gradient(180deg,rgba(13,21,19,.42) 0%,rgba(13,21,19,.62) 37%,rgba(13,21,19,.66) 70%,rgba(13,21,19,.5) 100%),url("../assets/tiras-majas-hero-original-mobile.webp");background-position:center,60% center;background-size:cover}
+ .hero-inner{display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;min-height:86svh;padding-top:135px;padding-bottom:80px}
+ .hero h1{max-width:560px;text-wrap:balance}
+ .hero-intro{margin-top:26px}
+ .hero-actions{display:grid;grid-template-columns:minmax(0,1fr);width:min(100%,370px);gap:10px}
+ .hero-actions .btn{width:100%;min-height:49px;justify-content:center}
+}
+@media(max-width:560px){
+ .review-grid{display:flex!important;grid-template-columns:none!important;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:0;gap:12px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;padding:3px 22px 17px 0;scrollbar-width:none}
+ .review-grid::-webkit-scrollbar{display:none}
+ .review-card{flex:0 0 min(86%,340px);scroll-snap-align:start;min-height:310px;display:flex;flex-direction:column;justify-content:space-between}
+ .review-person{margin-top:28px}
+ .hero-inner{min-height:90svh;padding:135px 0 58px}
+ .hero{background-position:center,66% center}
+ .hero h1{font-size:clamp(33px,9vw,45px);line-height:1.14;letter-spacing:-.055em}
+ .hero-actions{width:100%}
+ .about .about-photo{aspect-ratio:1.5}
+ .detail-actions .btn{width:auto}
+}
+@media(max-width:375px){.review-card{flex-basis:88%}.hero h1{font-size:clamp(32px,8.8vw,37px)}}

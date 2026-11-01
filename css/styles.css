@@ -591,3 +591,19 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 @media(max-width:850px){.service-gallery-item{flex-basis:74vw}}
 @media(max-width:560px){.service-gallery-item{flex-basis:82vw}.service-gallery-heading{margin-bottom:20px}.gallery-arrow{width:40px;height:40px}}
 @media(prefers-reduced-motion:reduce){.service-gallery-track{scroll-behavior:auto}}
+
+
+/* Service listing: distribute available width without cramped four-column cards */
+.services-directory .folder-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.services-directory .folder-card{min-width:0}
+.services-directory .folder-visual{height:200px;min-height:200px}
+.services-directory .folder-panel{min-height:174px;padding:25px 28px 29px}
+.services-directory .folder-card h3{font-size:clamp(19px,1.7vw,24px);line-height:1.25}
+.services-directory .folder-card p{max-width:36ch}
+.service-call-icon{display:inline-flex;justify-content:center;align-items:center;width:46px;height:46px;min-width:46px;border:1px solid rgba(38,52,43,.25);border-radius:50%;text-decoration:none}
+.service-call-icon:hover{background:#26342b;color:#fff}
+.service-call-icon svg{width:21px;height:21px}
+.detail-list .detail-icon{flex-basis:31px;width:31px;height:31px}
+.detail-list .detail-icon svg{width:26px;height:26px;stroke-width:1.8}
+@media(max-width:850px){.services-directory .folder-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.services-directory .folder-panel{padding:20px;min-height:170px}.services-directory .folder-visual{height:150px;min-height:150px}}
+@media(max-width:560px){.services-directory .folder-grid{grid-template-columns:1fr;gap:16px}.services-directory .folder-panel{min-height:0;padding:21px}.services-directory .folder-visual{height:155px;min-height:155px}}

@@ -680,3 +680,17 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 .service-task-card p{font-size:clamp(14px,1vw,16px);line-height:1.6;color:var(--muted);margin:0;max-width:36ch}
 @media(max-width:800px){.service-scope .service-task-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.service-scope .service-task-list li,.service-scope .service-task-list li:nth-last-child(4):first-child,.service-scope .service-task-list li:nth-last-child(4):first-child~li{grid-column:span 1}.service-task-card{padding:22px}.service-task-card-icon{margin-bottom:17px}}
 @media(max-width:540px){.service-scope .service-task-list{grid-template-columns:1fr;gap:12px}.service-scope .service-task-list li,.service-scope .service-task-list li:nth-last-child(4):first-child,.service-scope .service-task-list li:nth-last-child(4):first-child~li{grid-column:span 1}.service-task-card{padding:19px;display:grid;grid-template-columns:46px minmax(0,1fr);column-gap:14px;align-items:start}.service-task-card-icon{width:42px;height:42px;margin:0}.service-task-icon-svg{width:34px;height:34px}.service-task-card h3{font-size:17px}}
+
+
+/* Final service-card spacing and hierarchy */
+.service-scope .detail-layout>div:first-child{text-align:center;margin-bottom:32px}
+.service-scope .detail-layout>div:first-child h2{text-align:center;width:100%;max-width:none}
+.service-scope .service-task-list{gap:16px}
+.service-scope .service-task-list li{align-self:stretch}
+.service-scope .service-task-card{padding:24px 26px 25px;justify-content:flex-start;border-radius:15px;min-height:0;background:#ebebe6}
+.service-scope .service-task-card-icon{height:46px;width:48px;margin:0 0 14px;justify-content:flex-start}
+.service-scope .service-task-icon-svg{width:39px;height:39px}
+.service-scope .service-task-card h3{margin-bottom:7px}
+.service-scope .service-task-card p{max-width:48ch}
+@media(max-width:800px){.service-scope .service-task-card{padding:21px}.service-scope .detail-layout>div:first-child{margin-bottom:24px}}
+@media(max-width:540px){.service-scope .service-task-card{grid-template-columns:42px minmax(0,1fr);gap:12px;padding:18px}.service-scope .service-task-card-icon{width:40px;height:40px;margin:0}.service-scope .service-task-icon-svg{width:32px;height:32px}}

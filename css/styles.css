@@ -666,3 +666,17 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
  .service-when .detail-layout>h2,
  .service-faq .detail-layout>h2{white-space:normal;text-wrap:balance}
 }
+
+
+/* Locked service task cards: 3+2 for five tasks, 2x2 for four, no list dividers. */
+.service-scope .service-task-list{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px;list-style:none;padding:0;margin:0}
+.service-scope .service-task-list li{grid-column:span 2;display:flex;min-width:0;padding:0!important;margin:0;border:0!important}
+.service-scope .service-task-list li:nth-last-child(4):first-child,
+.service-scope .service-task-list li:nth-last-child(4):first-child~li{grid-column:span 3}
+.service-task-card{width:100%;height:100%;display:flex;flex-direction:column;align-items:flex-start;gap:0;background:#eaeae4;border:0;border-radius:18px;padding:clamp(19px,2vw,30px);min-width:0}
+.service-task-card-icon{width:56px;height:56px;display:flex;align-items:center;justify-content:center;color:#202821;margin-bottom:25px}
+.service-task-icon-svg{width:43px;height:43px;display:block;flex-shrink:0}
+.service-task-card h3{font-size:clamp(18px,1.35vw,22px);line-height:1.3;margin:0 0 9px;font-weight:600}
+.service-task-card p{font-size:clamp(14px,1vw,16px);line-height:1.6;color:var(--muted);margin:0;max-width:36ch}
+@media(max-width:800px){.service-scope .service-task-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.service-scope .service-task-list li,.service-scope .service-task-list li:nth-last-child(4):first-child,.service-scope .service-task-list li:nth-last-child(4):first-child~li{grid-column:span 1}.service-task-card{padding:22px}.service-task-card-icon{margin-bottom:17px}}
+@media(max-width:540px){.service-scope .service-task-list{grid-template-columns:1fr;gap:12px}.service-scope .service-task-list li,.service-scope .service-task-list li:nth-last-child(4):first-child,.service-scope .service-task-list li:nth-last-child(4):first-child~li{grid-column:span 1}.service-task-card{padding:19px;display:grid;grid-template-columns:46px minmax(0,1fr);column-gap:14px;align-items:start}.service-task-card-icon{width:42px;height:42px;margin:0}.service-task-icon-svg{width:34px;height:34px}.service-task-card h3{font-size:17px}}

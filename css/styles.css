@@ -476,3 +476,43 @@ a.btn[href="#/kontakti"]:hover,a.btn[href="#/kontakti"].dark:hover{background:#F
 .services-directory .folder-grid{row-gap:20px}
 @media(max-width:850px){.service-description{padding-top:44px}.service-description p{line-height:1.75}}
 @media(max-width:560px){.services .folder-grid{row-gap:13px}.service-description{padding-top:35px}.service-description p{font-size:15px}.detail-layout{gap:26px}}
+
+
+/* Service information architecture: three groups, eight direct links */
+.service-groups{width:100%}
+.service-groups-page{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.service-groups-page .service-group{background:#f0efe9;border:1px solid rgba(39,51,43,.10);border-radius:16px;padding:24px;min-width:0}
+.service-group-details>summary{display:flex;align-items:center;justify-content:space-between;gap:14px;list-style:none;cursor:pointer;font-weight:700;color:#25352b}
+.service-group-details>summary::-webkit-details-marker{display:none}
+.service-groups-page summary{font-size:clamp(19px,2vw,25px);line-height:1.25;min-height:58px}
+.service-group-links{display:flex;flex-direction:column;gap:2px;margin-top:18px}
+.service-group-links a{display:flex;gap:9px;align-items:center;min-height:52px;padding:11px 0;color:#26342b;text-decoration:none;font-size:15px;line-height:1.35;border-bottom:1px solid rgba(39,51,43,.12)}
+.service-group-links a:last-child{border-bottom:0}
+.service-group-links a:hover{color:#b66e2b}
+.service-group-links a>span:nth-last-child(2){flex:1}
+.service-group-links a>svg{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.group-chevron{width:10px;height:10px;flex:none;border-right:1.8px solid currentColor;border-bottom:1.8px solid currentColor;transform:rotate(45deg);transition:transform .2s}
+details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rotate(225deg)}
+.nav-service-menu{min-width:min(540px,calc(100vw - 32px));max-height:min(75vh,640px);overflow-y:auto;padding:18px}
+.service-groups-nav{display:grid;grid-template-columns:1fr 1fr;gap:18px 26px}
+.service-groups-nav .service-group:last-child{grid-column:1/-1}
+.service-groups-nav summary{font-size:12px;font-weight:750;letter-spacing:.03em;cursor:default}
+.service-groups-nav .group-chevron{display:none}
+.service-groups-nav .service-group-links{margin-top:6px;gap:0}
+.nav-service-menu .service-groups-nav a{min-height:37px;white-space:normal;font-size:12px;padding:8px 4px;border:0}
+.service-groups-nav .nav-service-icon{display:inline-flex;flex:none;width:24px}
+.service-groups-nav .service-group-links a>span:nth-last-child(2){flex:1}
+.mobile-service-label{padding:16px 14px 6px;font-size:13px;font-weight:750}
+.service-groups-mobile .service-group{border-bottom:1px solid rgba(39,51,43,.12)}
+.service-groups-mobile summary{padding:12px 14px;font-size:14px}
+.service-groups-mobile .service-group-links{margin:0;padding:0 12px 10px}
+.mobile-nav .service-groups-mobile .service-group-links a{min-height:43px;padding:8px 5px;font-size:13px;font-weight:500;gap:10px;border:0}
+.service-groups-mobile .nav-service-icon{display:flex;width:24px;flex:none}
+@media(min-width:851px){.service-groups-page .group-chevron{display:none}}
+@media(max-width:850px){
+ .service-groups-page{grid-template-columns:1fr;gap:12px}
+ .service-groups-page .service-group{padding:18px 19px}
+ .service-groups-page summary{min-height:28px;font-size:19px}
+ .service-groups-page .service-group-links{margin-top:12px}
+ .service-groups-page .service-group-links a{min-height:46px;font-size:14px}
+}

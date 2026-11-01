@@ -541,3 +541,33 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
  .service-groups-page .service-group-links{margin-top:0;margin-bottom:14px}
  .service-groups-page .service-group-links a{min-height:46px}
 }
+
+
+/* Approved service detail template — scoped to service pages */
+.service-detail-hero .wrap{max-width:1200px}
+.service-detail-hero p{max-width:680px;line-height:1.65;margin-top:18px}
+.service-hero-actions,.service-closing-actions{display:flex;align-items:center;flex-wrap:wrap;gap:22px;margin-top:28px}
+.service-call{display:inline-flex;align-items:center;min-height:44px;color:inherit;text-decoration:underline;text-underline-offset:5px;font-weight:600}
+.service-detail-hero .service-call{color:#fff}
+.service-scope{padding-bottom:clamp(45px,7vw,100px)}
+.service-proof{padding:clamp(50px,7vw,90px) 0;background:#efeee8}
+.service-proof-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);align-items:center;gap:clamp(24px,5vw,74px)}
+.service-proof-placeholder{display:flex;align-items:center;justify-content:center;min-height:clamp(250px,32vw,430px);background:#d9dcd4;color:#59655e;border-radius:16px;font-size:14px;text-align:center;padding:20px}
+.service-proof-copy h2,.service-detail-closing h2{font-size:clamp(27px,3vw,42px);line-height:1.18}
+.service-proof-copy p,.service-detail-closing p{color:var(--muted);line-height:1.7;margin-top:14px;max-width:480px}
+.service-detail-closing{padding:clamp(55px,8vw,110px) 0}
+.service-closing-inner{display:flex;align-items:center;justify-content:space-between;gap:40px}
+.service-closing-actions{margin-top:0;flex-shrink:0}
+.service-detail-closing .next-project{margin-top:45px}
+@media(max-width:850px){
+ .service-proof-layout{grid-template-columns:1fr;gap:25px}
+ .service-proof-placeholder{min-height:250px}
+ .service-closing-inner{align-items:flex-start;flex-direction:column;gap:24px}
+}
+@media(max-width:560px){
+ .service-hero-actions,.service-closing-actions{gap:13px}
+ .service-hero-actions .btn,.service-closing-actions .btn{justify-content:center}
+ .service-proof{padding:48px 0}
+ .service-proof-placeholder{min-height:210px}
+ .service-detail-closing{padding:58px 0}
+}

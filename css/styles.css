@@ -650,3 +650,19 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
  .service-scope .service-task-list li{padding:18px 0 21px}
  .service-faq .detail-layout{gap:18px}
 }
+
+
+/* Service-page refinement: no decorative task dividers; single-line desktop headings */
+.service-scope .service-task-list li{border:0!important;padding:13px 0 19px}
+.service-scope .service-task-list li:first-child{padding-top:13px}
+.service-scope .detail-layout>div:first-child{margin-bottom:20px}
+@media(min-width:901px){
+ .service-scope .detail-layout>div:first-child h2,
+ .service-when .detail-layout>h2,
+ .service-faq .detail-layout>h2{font-size:clamp(30px,3vw,48px);white-space:nowrap;max-width:100%}
+}
+@media(max-width:900px){
+ .service-scope .detail-layout>div:first-child h2,
+ .service-when .detail-layout>h2,
+ .service-faq .detail-layout>h2{white-space:normal;text-wrap:balance}
+}

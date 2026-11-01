@@ -571,3 +571,23 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
  .service-proof-placeholder{min-height:210px}
  .service-detail-closing{padding:58px 0}
 }
+
+
+/* Service subpages: title-only hero and manual horizontal photo rail. */
+.service-detail-hero .wrap{display:flex;align-items:center;justify-content:center}
+.service-detail-hero{padding-bottom:clamp(72px,8vw,105px)}
+.service-detail-hero h1{margin:0 auto;text-align:center}
+.service-proof{overflow:hidden}
+.service-gallery-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:30px}
+.service-gallery-heading h2{font-size:clamp(30px,3.5vw,43px);line-height:1.2}
+.service-gallery-controls{display:flex;gap:10px}
+.gallery-arrow{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid #8d968b;border-radius:50%;color:#26342b;cursor:pointer}
+.gallery-arrow:hover{background:#26342b;color:#fff}
+.gallery-arrow:focus-visible{outline:3px solid #f28a35;outline-offset:3px}
+.gallery-arrow svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.service-gallery-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;overscroll-behavior-inline:contain;padding-bottom:10px}
+.service-gallery-item{flex:0 0 min(45vw,520px);scroll-snap-align:start;min-width:0}
+.service-gallery-placeholder{aspect-ratio:4/3;border-radius:14px;background:#d9dcd4;color:#687369;display:flex;align-items:center;justify-content:center;font-size:14px}
+@media(max-width:850px){.service-gallery-item{flex-basis:74vw}}
+@media(max-width:560px){.service-gallery-item{flex-basis:82vw}.service-gallery-heading{margin-bottom:20px}.gallery-arrow{width:40px;height:40px}}
+@media(prefers-reduced-motion:reduce){.service-gallery-track{scroll-behavior:auto}}

@@ -694,3 +694,17 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 .service-scope .service-task-card p{max-width:48ch}
 @media(max-width:800px){.service-scope .service-task-card{padding:21px}.service-scope .detail-layout>div:first-child{margin-bottom:24px}}
 @media(max-width:540px){.service-scope .service-task-card{grid-template-columns:42px minmax(0,1fr);gap:12px;padding:18px}.service-scope .service-task-card-icon{width:40px;height:40px;margin:0}.service-scope .service-task-icon-svg{width:32px;height:32px}}
+
+
+/* Eight-service directory: 4 cards per row, no empty image placeholders */
+.services-directory .service-directory-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.services-directory .service-directory-card{position:relative;display:flex;flex-direction:column;min-width:0;min-height:290px;padding:23px 21px 20px;border-radius:17px;background:#eae9df;color:#202821;text-decoration:none;transition:background .2s ease,transform .2s ease}
+.services-directory .service-directory-card:hover{background:#e2e2d5;transform:translateY(-2px)}
+.services-directory .service-directory-card:focus-visible{outline:3px solid #f28a35;outline-offset:3px}
+.services-directory .service-directory-symbol{width:100%;height:94px;display:flex;align-items:center;justify-content:center;margin:0 0 19px}
+.services-directory .service-directory-symbol svg{height:70px;width:70px;stroke-width:1.45}
+.services-directory .service-directory-card h3{font-size:clamp(16px,1.2vw,21px);line-height:1.27;letter-spacing:-.035em;font-weight:600;margin:0 0 9px}
+.services-directory .service-directory-card p{font-size:clamp(13px,.9vw,15px);line-height:1.5;color:#626d64;margin:0 0 16px}
+.services-directory .service-directory-arrow{display:flex;align-items:center;justify-content:flex-end;margin-top:auto}
+@media(max-width:1000px){.services-directory .service-directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.services-directory .service-directory-card{min-height:265px}.services-directory .service-directory-symbol{height:80px}.services-directory .service-directory-symbol svg{height:60px;width:60px}}
+@media(max-width:560px){.services-directory .service-directory-grid{gap:10px}.services-directory .service-directory-card{min-height:255px;padding:15px 13px;border-radius:13px}.services-directory .service-directory-symbol{height:64px;margin-bottom:12px}.services-directory .service-directory-symbol svg{height:52px;width:52px}.services-directory .service-directory-card h3{font-size:15px}.services-directory .service-directory-card p{font-size:12px;line-height:1.45;margin-bottom:13px}.services-directory .service-directory-arrow svg{width:18px;height:18px}}

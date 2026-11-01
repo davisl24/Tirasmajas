@@ -19,17 +19,19 @@ function groupedServices(mode){
 }
 function serviceRows(){
  const descriptions=[
- "Pamatu remonts, siltināšana un aizsardzība pret mitrumu.",
- "Fasādes siltināšana, apmetuma atjaunošana un dekoratīvā apdare.",
- "Vecā jumta nomaiņa, konstrukciju remonts un jauna seguma montāža.",
- "Veco logu un durvju nomaiņa, blīvēšana un aiļu apdare.",
- "Tranšeju un bedru rakšana, zemes pārvietošana un teritorijas līdzināšana.",
- "Ūdensvada un kanalizācijas izbūve, apkures un santehnikas montāža.",
- "Grīdas pamatnes sagatavošana, siltināšana, armēšana un betonēšana.",
- "Starpsienu un griestu izbūve, sienu apšūšana un virsmu apdare."
+ "Pamatu atjaunošana, siltināšana un aizsardzība pret mitrumu.",
+ "Ārsienu siltināšana, bojātā apmetuma atjaunošana un fasādes apdare.",
+ "Jumta seguma nomaiņa, konstrukciju remonts un jauna jumta izbūve.",
+ "Veco logu un durvju nomaiņa, montāžas vietu blīvēšana un aiļu apdare.",
+ "Tranšeju un bedru rakšana, grunts pārvietošana un teritorijas līdzināšana.",
+ "Ūdensvada un kanalizācijas izbūve, apkures sistēmu un santehnikas montāža.",
+ "Grīdas pamatnes sagatavošana, siltināšana un betona grīdas izbūve.",
+ "Starpsienu un griestu izbūve, sienu apšūšana un virsmu sagatavošana apdarei."
  ];
+ const icons=["", "wall", "home", "", "", "pipeline", "stack-2", "wall"];
  return '<div class="service-directory-grid">'+services.map(function(item,i){
- return '<a class="service-directory-card" href="#/pakalpojumi/'+item.slug+'" aria-label="'+item.name+' — apskatīt pakalpojumu"><span class="service-directory-symbol" aria-hidden="true">'+serviceNavIcon(i)+'</span><h3>'+item.name+'</h3><p>'+descriptions[i]+'</p><span class="service-directory-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a>';
+ const svg=icons[i]?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+taskSvgShapes[icons[i]]+'</svg>':serviceNavIcon(i);
+ return '<a class="service-directory-card" href="#/pakalpojumi/'+item.slug+'" aria-label="'+item.name+' — apskatīt pakalpojumu"><span class="service-directory-symbol" aria-hidden="true">'+svg+'</span><span class="service-directory-copy"><h3>'+item.name+'</h3><p>'+descriptions[i]+'</p><span class="service-directory-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 19 5M8 5h11v11"/></svg></span></span></a>';
  }).join('')+'</div>';
 }
 function processSection(){return '<section class="section process" id="sadarbiba"><div class="wrap process-layout"><div class="process-copy"><h2>Kā sākas sadarbība</h2></div><div class="process-steps"><span class="process-progress" aria-hidden="true"></span><div class="process-step"><div><h3>Pastāstiet par darbu</h3><p>Norādiet interesējošo pakalpojumu, objekta atrašanās vietu un īsu darba aprakstu.</p></div></div><div class="process-step"><div><h3>Objekta izvērtēšana</h3><p>Tiek precizēts nepieciešamais darba apjoms un, ja vajadzīgs, apsekošanas iespējas.</p></div></div><div class="process-step"><div><h3>Piedāvājums</h3><p>Pēc situācijas izvērtēšanas var vienoties par tālāko darbu un izmaksu aprēķinu.</p></div></div></div></div></section>';}

@@ -607,3 +607,23 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 .detail-list .detail-icon svg{width:26px;height:26px;stroke-width:1.8}
 @media(max-width:850px){.services-directory .folder-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.services-directory .folder-panel{padding:20px;min-height:170px}.services-directory .folder-visual{height:150px;min-height:150px}}
 @media(max-width:560px){.services-directory .folder-grid{grid-template-columns:1fr;gap:16px}.services-directory .folder-panel{min-height:0;padding:21px}.services-directory .folder-visual{height:155px;min-height:155px}}
+
+
+/* Approved informational copy on service detail pages */
+.service-when .detail-layout,.service-faq .detail-layout{align-items:start}
+.service-when .detail-layout>p{max-width:680px;line-height:1.8;color:var(--muted);font-size:clamp(16px,1.4vw,19px);margin:0}
+.service-task-list{list-style:none;margin:0;padding:0}
+.service-task-list li{padding:18px 0;border-bottom:1px solid rgba(39,51,43,.15)}
+.service-task-list li:first-child{padding-top:0}
+.service-task-list h3{font-size:clamp(17px,1.5vw,21px);font-weight:600;line-height:1.35;margin:0 0 8px}
+.service-task-list p{color:var(--muted);font-size:15px;line-height:1.65;margin:0;max-width:560px}
+.service-faq{background:#f4f3ef}
+.service-faq-items{min-width:0}
+.service-faq-items details{border-bottom:1px solid rgba(39,51,43,.19)}
+.service-faq-items summary{list-style:none;cursor:pointer;padding:20px 30px 20px 0;font-weight:600;line-height:1.5;position:relative}
+.service-faq-items summary::-webkit-details-marker{display:none}
+.service-faq-items summary:after{content:"+";position:absolute;right:4px;top:19px;font-size:23px;font-weight:400}
+.service-faq-items details[open] summary:after{content:"−"}
+.service-faq-items summary:focus-visible{outline:2px solid #f28a35;outline-offset:3px}
+.service-faq-items p{color:var(--muted);line-height:1.7;margin:0 0 22px;max-width:660px}
+@media(max-width:850px){.service-when .detail-layout,.service-faq .detail-layout{display:grid;grid-template-columns:1fr;gap:20px}.service-task-list li{padding:17px 0}}

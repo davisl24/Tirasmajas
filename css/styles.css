@@ -523,7 +523,7 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 .services .section-head p{display:none}
 .service-groups-page{align-items:start;gap:clamp(24px,3vw,50px)}
 .service-groups-page .service-group{background:transparent;border:0;border-radius:0;padding:0;min-width:0}
-.service-groups-page .service-group-details>summary{border-top:2px solid #26342b;padding-top:21px;align-items:start;min-height:0;cursor:default}
+.service-groups-page .service-group-details>summary{border-top:0;padding-top:21px;align-items:start;min-height:0;cursor:default}
 .service-groups-page .service-group-details>summary span:first-child{max-width:100%;font-size:clamp(19px,1.8vw,23px);line-height:1.32}
 .service-groups-page .service-group-links{margin-top:18px;gap:0}
 .service-groups-page .service-group-links a{padding:13px 0;min-height:50px;font-size:clamp(14px,1.05vw,16px)}

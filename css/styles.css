@@ -466,3 +466,13 @@ a.btn[href="#/kontakti"]:hover,a.btn[href="#/kontakti"].dark:hover{background:#F
 /* Arrow icons are inline SVG, never Unicode glyphs (consistent on iOS Safari). */
 .folder-arrow svg,.btn-arrow svg,.about-link svg,.works-facebook svg,.next-project svg{display:inline-block;vertical-align:middle;flex:none;width:18px;height:18px}
 .next-project a{display:inline-flex;align-items:center;gap:8px}
+
+
+/* Eight-service catalogue: maintain editorial layout and reading width. */
+.service-description{padding-top:clamp(44px,6vw,80px);max-width:1200px}
+.service-description h2{font-size:clamp(29px,3.6vw,43px);margin-bottom:19px}
+.service-description p{font-size:clamp(15px,1.3vw,17px);line-height:1.85;color:var(--muted);max-width:780px}
+.services .folder-grid{row-gap:20px}
+.services-directory .folder-grid{row-gap:20px}
+@media(max-width:850px){.service-description{padding-top:44px}.service-description p{line-height:1.75}}
+@media(max-width:560px){.services .folder-grid{row-gap:13px}.service-description{padding-top:35px}.service-description p{font-size:15px}.detail-layout{gap:26px}}

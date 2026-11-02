@@ -46,7 +46,7 @@ const featuredWorkPhotos=[
 function workCard(i){
  const photo=featuredWorkPhotos[i-1];if(!photo)return "";
  const src="./assets/images/"+photo.folder+"/"+photo.file;
- return '<article class="work-item"><div class="work-media"><img class="work-photo" src="'+src+'" alt="'+photo.label+' — paveiktā darba fotogrāfija" loading="lazy" decoding="async" width="800" height="500"></div><div class="work-meta"><span>'+photo.label+'</span><span>Darba piemērs '+String(i).padStart(2,"0")+'</span></div></article>';
+ return '<article class="work-item"><button class="work-photo-trigger" type="button" data-work-photo="'+(i-1)+'" aria-label="Palielināt foto: '+photo.label+'"><span class="work-media"><img class="work-photo" src="'+src+'" alt="'+photo.label+' — paveiktā darba fotogrāfija" loading="lazy" decoding="async" width="800" height="500"></span></button><div class="work-meta"><span>'+photo.label+'</span><span>Darba piemērs '+String(i).padStart(2,"0")+'</span></div></article>';
 }
 function worksSection(){return '<section class="section works" id="musu-darbi"><div class="wrap"><div class="section-head"><h2>Mūsu darbi</h2></div><div class="works-grid">'+[1,2,3].map(workCard).join('')+'</div><div class="works-link">'+btn("Apskatīt visus darbus","#/musu-darbi","dark")+'</div></div></section>';}
 function worksPage(){return subHero("Mūsu darbi","")+'<section class="section works" id="visi-darbi"><div class="wrap"><div class="works-grid full">'+[1,2,3,4].map(workCard).join('')+'</div><div class="works-page-action"><a class="btn dark works-facebook" href="https://www.facebook.com/search/top/?q=T%C4%ABras%20M%C4%81jas" target="_blank" rel="noopener noreferrer" aria-label="Meklēt Tīras Mājas paveiktos darbus Facebook">Meklēt vairāk darbu Facebook <span aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div></div></section>'+reviewsDemo()+contactSection();}
@@ -68,12 +68,18 @@ const servicePhotos={
  "zemes-darbi":2,"inzeniertikli":2,"gridas":7,"ieksdarbi":44
 };
 const servicePhotoFolders={"zemes-darbi":"raksanas-darbi"};
+const excavationExtraPhotos=[
+ "pamati/pamati-01.webp","pamati/pamati-02.webp",
+ "inzeniertikli/inzeniertikli-01.webp","inzeniertikli/inzeniertikli-02.webp"
+];
 function serviceGallery(slug){
  const folder=servicePhotoFolders[slug]||slug;
  const count=servicePhotos[slug]||0;
- return Array.from({length:count},function(_,index){
+ return Array.from({length:count+(slug==="zemes-darbi"?excavationExtraPhotos.length:0)},function(_,index){
   const number=String(index+1).padStart(2,"0");
-  const source="./assets/images/"+folder+"/"+folder+"-"+number+".webp";
+  const source=(slug==="zemes-darbi"&&index>=count)
+   ? "./assets/images/"+excavationExtraPhotos[index-count]
+   : "./assets/images/"+folder+"/"+folder+"-"+number+".webp";
   return '<div class="service-gallery-item"><img class="service-gallery-image" src="'+source+'" alt="'+services.find(function(s){return s.slug===slug;}).name+' — darba foto '+(index+1)+'" loading="lazy" decoding="async" width="640" height="480"></div>';
  }).join("");
 }
@@ -98,10 +104,47 @@ function closeMenu(){mobileNav.classList.remove("open");menuBtn.setAttribute("ar
 
 function siteFooter(){const root=document.querySelector(".footer");if(!root)return;const logo=document.querySelector(".header .brand-logo");const logoHtml=logo?'<img class="brand-logo" src="'+logo.src+'" alt="" width="42" height="42">':'';root.innerHTML='<div class="wrap"><div class="footer-columns"><div class="footer-company"><a class="brand" href="#/" aria-label="Tīras Mājas — sākumlapa">'+logoHtml+'TĪRAS MĀJAS</a><p>Inženiertīklu izbūve un zemes darbi.</p></div><nav aria-label="Kājenes navigācija"><h3>Navigācija</h3><ul>'+nav.map(n=>'<li><a href="'+n[1]+'">'+n[0]+'</a></li>').join('')+'</ul></nav><nav aria-label="Kājenes pakalpojumi"><h3>Pakalpojumi</h3><ul>'+services.map(x=>'<li><a href="#/pakalpojumi/'+x.slug+'">'+x.name+'</a></li>').join('')+'<li><a href="#/pakalpojumi">Skatīt visus</a></li></ul></nav><div class="footer-contacts"><h3>Kontakti</h3><a href="tel:+37126494261">+371 26494261</a><p>Limbažu novads, Latvija</p></div></div><div class="footer-bottom"><span>© '+new Date().getFullYear()+' Tīras Mājas · IK “Tīras mājas” · Reģ. Nr. 40002203319</span><div class="footer-legal"><a href="#/privatums">Privātuma informācija</a><a href="#/privatums">Sīkdatnes</a></div></div></div>';}
 function privacyPage(){return subHero("Privātuma informācija","")+'<section class="section privacy-info"><div class="wrap"><h2>Datu apstrāde</h2><p>Šī vietne pašlaik ir demonstrācijas versija. Kontaktforma demonstrācijas režīmā nenosūta un nesaglabā ievadīto informāciju. Uzņēmums: IK “Tīras mājas”, reģ. Nr. 40002203319. Tālrunis: <a href="tel:+37126494261">+371 26494261</a>.</p><h2 id="sikdatnes">Sīkdatnes</h2><p>Demonstrācijas kodā nav pieslēgta analītika vai reklāmas izsekošana. Ja pirms publicēšanas tiks pieslēgti papildu datu apstrādes pakalpojumi, šī informācija un piekrišanas pārvaldība būs jāatjaunina atbilstoši faktiskajai darbībai.</p><p>Šī nav galīgā privātuma politika. Pirms vietnes publicēšanas jāprecizē pārziņa kontaktinformācija, datu glabāšanas termiņi un izmantotie pakalpojumi.</p></div></section>';}
-function render(){siteFooter();let parts=pathNow().split("/").filter(Boolean);let section=parts[0]||"";app.innerHTML=!section?home():section==="pakalpojumi"?(parts[1]?detailPage(parts[1]):servicesPage()):section==="musu-darbi"?worksPage():section==="par-mums"?aboutPage():section==="kontakti"?contactsPage():section==="privatums"?privacyPage():notFound();document.title=(section==="pakalpojumi"?"Pakalpojumi — ":"")+ "Tīras Mājas — demo";desktopNav.innerHTML=nav.map(function(n){const link='<a href="'+n[1]+'"'+((!section&&n[1]==="#/")||(section&&n[1]==="#/"+section)?' aria-current="page"':'')+'>'+n[0]+'</a>';return n[0]==="Pakalpojumi"?'<div class="nav-service-group">'+link+'<div class="nav-service-menu">'+groupedServices("nav")+'</div></div>':link;}).join("");
+function render(){closeWorkLightbox();siteFooter();let parts=pathNow().split("/").filter(Boolean);let section=parts[0]||"";app.innerHTML=!section?home():section==="pakalpojumi"?(parts[1]?detailPage(parts[1]):servicesPage()):section==="musu-darbi"?worksPage():section==="par-mums"?aboutPage():section==="kontakti"?contactsPage():section==="privatums"?privacyPage():notFound();document.title=(section==="pakalpojumi"?"Pakalpojumi — ":"")+ "Tīras Mājas — demo";desktopNav.innerHTML=nav.map(function(n){const link='<a href="'+n[1]+'"'+((!section&&n[1]==="#/")||(section&&n[1]==="#/"+section)?' aria-current="page"':'')+'>'+n[0]+'</a>';return n[0]==="Pakalpojumi"?'<div class="nav-service-group">'+link+'<div class="nav-service-menu">'+groupedServices("nav")+'</div></div>':link;}).join("");
 mobileNav.innerHTML=nav.filter(function(n){return n[0]!=="Pakalpojumi";}).map(function(n){return '<a href="'+n[1]+'">'+n[0]+'</a>';}).join("")+'<div class="mobile-service-label">Pakalpojumi</div>'+groupedServices("mobile")+btn("Pieteikt apsekošanu","#/kontakti","");
 if(window.matchMedia('(max-width: 850px)').matches){document.querySelectorAll('.service-groups-page .service-group-details').forEach(function(el,i){el.open=i===0;});}closeMenu();const theForm=document.getElementById("demoForm");if(theForm)theForm.addEventListener("submit",function(ev){ev.preventDefault();const status=document.getElementById("formStatus");status.hidden=false;status.textContent="Demonstrācijas režīms: pieteikums netika nosūtīts. Reālajai lapai tiks pieslēgta pieteikumu saņemšana.";});window.scrollTo({top:0,behavior:"instant"});requestAnimationFrame(updateProcessProgress);}
 document.addEventListener("click",function(e){const a=e.target.closest('a[href="#pieteikums"],a[href="#pakalpojumi"]');if(a){let target=document.querySelector(a.getAttribute("href").replace("#","#"));if(target){e.preventDefault();target.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});}}});
+let lightboxIndex=0;
+let previousFocus=null;
+function closeWorkLightbox(){
+ const overlay=document.getElementById("workLightbox");if(!overlay)return;
+ overlay.remove();document.body.classList.remove("work-lightbox-open");
+ if(previousFocus&&previousFocus.isConnected)previousFocus.focus();
+}
+function showWorkLightbox(index){
+ const all=featuredWorkPhotos;lightboxIndex=(index+all.length)%all.length;
+ const item=all[lightboxIndex];
+ const overlay=document.getElementById("workLightbox");if(!overlay)return;
+ overlay.querySelector(".work-lightbox-photo").src="./assets/images/"+item.folder+"/"+item.file;
+ overlay.querySelector(".work-lightbox-photo").alt=item.label+" — lielais attēls";
+ overlay.querySelector(".work-lightbox-count").textContent=(lightboxIndex+1)+" / "+all.length;
+}
+document.addEventListener("click",function(e){
+ const trigger=e.target.closest("[data-work-photo]");
+ if(trigger){
+  previousFocus=trigger;
+  const overlay=document.createElement("div");
+  overlay.id="workLightbox";overlay.className="work-lightbox";overlay.setAttribute("role","dialog");overlay.setAttribute("aria-modal","true");overlay.setAttribute("aria-label","Darbu foto galerija");
+  overlay.innerHTML='<button type="button" class="work-lightbox-close" data-work-close aria-label="Aizvērt foto">×</button><button type="button" class="work-lightbox-prev" data-work-prev aria-label="Iepriekšējais foto">‹</button><figure><img class="work-lightbox-photo" alt=""><figcaption class="work-lightbox-count"></figcaption></figure><button type="button" class="work-lightbox-next" data-work-next aria-label="Nākamais foto">›</button>';
+  document.body.appendChild(overlay);document.body.classList.add("work-lightbox-open");
+  showWorkLightbox(Number(trigger.dataset.workPhoto));overlay.querySelector("[data-work-close]").focus();
+  return;
+ }
+ if(e.target.closest("[data-work-close]")||e.target.id==="workLightbox")closeWorkLightbox();
+ else if(e.target.closest("[data-work-prev]"))showWorkLightbox(lightboxIndex-1);
+ else if(e.target.closest("[data-work-next]"))showWorkLightbox(lightboxIndex+1);
+});
+document.addEventListener("keydown",function(e){
+ if(!document.getElementById("workLightbox"))return;
+ if(e.key==="Escape"){e.preventDefault();closeWorkLightbox();}
+ else if(e.key==="ArrowLeft"){e.preventDefault();showWorkLightbox(lightboxIndex-1);}
+ else if(e.key==="ArrowRight"){e.preventDefault();showWorkLightbox(lightboxIndex+1);}
+ else if(e.key==="Tab"){const buttons=[...document.querySelectorAll("#workLightbox button")];const index=buttons.indexOf(document.activeElement);if(e.shiftKey&&index===0){e.preventDefault();buttons[buttons.length-1].focus();}else if(!e.shiftKey&&index===buttons.length-1){e.preventDefault();buttons[0].focus();}}
+});
 document.addEventListener("click",function(e){const button=e.target.closest("[data-gallery-step]");if(!button)return;const gallery=button.closest(".service-proof")?.querySelector(".service-gallery-track");if(!gallery)return;const item=gallery.querySelector(".service-gallery-item");if(!item)return;const step=Number(button.dataset.galleryStep);gallery.scrollBy({left:step*(item.getBoundingClientRect().width+16),behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});});
 menuBtn.addEventListener("click",function(){let open=mobileNav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(open));menuBtn.setAttribute("aria-label",open?"Aizvērt izvēlni":"Atvērt izvēlni");});
 document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();});

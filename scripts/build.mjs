@@ -60,7 +60,7 @@ for (const [path,makeContent] of routes) {
 }
 writeFileSync(join(out,"robots.txt"), publicReady
   ? "User-agent: *\nAllow: /\nSitemap: " + siteUrl + "/sitemap.xml\n"
-  : "User-agent: *\nDisallow: /\n");
+  : "User-agent: *\nAllow: /\n");
 if (publicReady) {
   const urls = routes.filter(([path]) => path !== "privatums").map(([path]) => "<url><loc>" + escapeAttr(siteUrl + "/" + (path ? path + "/" : "")) + "</loc></url>").join("");
   writeFileSync(join(out,"sitemap.xml"), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + urls + '</urlset>');

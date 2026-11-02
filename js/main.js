@@ -57,7 +57,7 @@ function portfolioCard(photo,index){
 }
 function worksPage(){
  const filters='<div class="portfolio-filters" role="group" aria-label="Filtrēt darbus pēc pakalpojuma"><button type="button" class="portfolio-filter is-active" data-portfolio-filter="all" aria-pressed="true">Visi darbi</button>'+services.map(function(service){return '<button type="button" class="portfolio-filter" data-portfolio-filter="'+service.slug+'" aria-pressed="false">'+service.name+'</button>';}).join('')+'</div>';
- return subHero("Mūsu darbi","")+'<section class="section works" id="visi-darbi"><div class="wrap">'+filters+'<p class="portfolio-count" id="portfolioCount" role="status" aria-live="polite">'+portfolioPhotos.length+' foto</p><div class="works-grid full portfolio-grid">'+portfolioPhotos.map(portfolioCard).join('')+'</div><div class="works-page-action"><a class="btn dark works-facebook" href="https://www.facebook.com/tirasmajas" target="_blank" rel="noopener noreferrer" aria-label="Apskatīt Tīras Mājas Facebook lapu">Vairāk darbu Facebook <span aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div></div></section>'+reviewsDemo()+contactSection();
+ return subHero("Mūsu darbi","")+'<section class="section works" id="visi-darbi"><div class="wrap">'+filters+'<p class="portfolio-count" id="portfolioCount" role="status" aria-live="polite">'+portfolioPhotos.length+' foto</p><div class="portfolio-carousel"><div class="works-grid full portfolio-grid" id="portfolioTrack" tabindex="0" aria-label="Darbu fotogrāfiju karuselis">'+portfolioPhotos.map(portfolioCard).join('')+'</div></div><div class="portfolio-controls"><span class="portfolio-hint">Pāršķir darbus</span><div class="portfolio-arrows"><button class="portfolio-arrow" type="button" data-portfolio-step="-1" aria-label="Iepriekšējie darbi">←</button><button class="portfolio-arrow" type="button" data-portfolio-step="1" aria-label="Nākamie darbi">→</button></div></div><div class="works-page-action"><a class="btn dark works-facebook" href="https://www.facebook.com/tirasmajas" target="_blank" rel="noopener noreferrer" aria-label="Apskatīt Tīras Mājas Facebook lapu">Vairāk darbu Facebook <span aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div></div></section>'+reviewsDemo()+contactSection();
 }
 function reviewsDemo(){const reviews=[{quote:"Manam īpašumam vajadzēja izveidot kanalizāciju. Puiši to izdarīja gan ēkas iekšienē, gan ārā. Darbs paveikts izcili un pēc darba teritorija sakopta.",author:"Andris",place:"Saulkrasti"},{quote:"Kā palīgus īpašuma teritorijas sakopšanā, komunikāciju atjaunošanā un citos darbos izvēlējos Tīras Mājas komandu. Darbs paveikts ātri un precīzi.",author:"Santa",place:"Mārupe"},{quote:"Puišiem var uzdot visa veida jautājumus. Pārsteidza tas, ka darbus izdarīja ļoti ātri, un rezultāts ir fantastisks.",author:"Mareks",place:"Valmiera"}];return '<section class="section reviews-demo"><div class="wrap"><div class="section-head"><h2>Klientu atsauksmes</h2></div><div class="review-grid">'+reviews.map(r=>'<article class="review-card"><p>“'+r.quote+'”</p><span class="review-person"><span class="review-avatar">'+r.author.charAt(0)+'</span><span>'+r.author+' · '+r.place+'</span></span></article>').join('')+'</div></div></section>';}
 function aboutSection(){return '<section class="section about" id="par-mums"><div class="wrap"><h2 class="about-heading">Par mums</h2><div class="about-layout"><div class="about-intro"><div class="about-photo" role="img" aria-label="Uzņēmuma darba objektā redzama ekskavācijas tehnika un tranšeja"></div><a class="about-link" href="/par-mums">Vairāk par uzņēmumu <span aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a></div><div class="about-facts"><div><h3>Objekta apsekošana un tāme</h3><p>Darbu apjomu un izmaksas precizējam pēc objekta izvērtēšanas.</p></div><div><h3>Izbūve, remonts un apkope</h3><p>Inženiertīklu izbūve, remonts un apkope.</p></div><div><h3>Darbi visā Latvijā</h3><p>Pakalpojumu sniegšana dažādos Latvijas reģionos.</p></div></div></div></div></section>';}
@@ -161,7 +161,43 @@ document.addEventListener("click",function(event){
  });
  const count=container.querySelector("#portfolioCount");
  if(count)count.textContent=visible+" foto";
+ const track=container.querySelector("#portfolioTrack");if(track)track.scrollTo({left:0,behavior:"instant"});
 });
+
+// Portfolio carousel: unobtrusive auto advance, pauses for user interaction.
+function portfolioStep(direction){
+ const track=document.getElementById("portfolioTrack");
+ if(!track)return;
+ const cards=[...track.querySelectorAll(".portfolio-item:not([hidden])")];
+ if(!cards.length)return;
+ const card=cards[0];
+ const distance=card.getBoundingClientRect().width+24;
+ const max=track.scrollWidth-track.clientWidth;
+ if(max<=2)return;
+ const next=track.scrollLeft+direction*distance;
+ const wrap=direction>0&&next>=max-5?0:direction<0&&next<=0?max:next;
+ track.scrollTo({left:wrap,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});
+}
+document.addEventListener("click",function(event){
+ const step=event.target.closest("[data-portfolio-step]");
+ if(step)portfolioStep(Number(step.dataset.portfolioStep));
+});
+(function initPortfolioAutoplay(){
+ const track=document.getElementById("portfolioTrack");
+ if(!track||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+ let paused=false;
+ const carousel=track.closest(".portfolio-carousel");
+ carousel.addEventListener("pointerenter",()=>{paused=true;});
+ carousel.addEventListener("pointerleave",()=>{paused=false;});
+ track.addEventListener("focusin",()=>{paused=true;});
+ track.addEventListener("focusout",()=>{paused=false;});
+ track.addEventListener("touchstart",()=>{paused=true;},{passive:true});
+ track.addEventListener("touchend",()=>{paused=false;},{passive:true});
+ document.addEventListener("visibilitychange",()=>{if(document.hidden)paused=true;else paused=false;});
+ window.setInterval(()=>{
+  if(!paused&&!document.hidden&&!document.querySelector("#workLightbox")&&!document.querySelector(".discount-modal:not([hidden])")&&track.getBoundingClientRect().top<innerHeight&&track.getBoundingClientRect().bottom>0)portfolioStep(1);
+ },4800);
+})();
 
 let lightboxIndex=0;
 let activeWorkPhotos=featuredWorkPhotos;

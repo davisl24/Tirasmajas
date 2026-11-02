@@ -49,7 +49,21 @@ function workCard(i){
  return '<article class="work-item"><button class="work-photo-trigger" type="button" data-work-photo="'+(i-1)+'" aria-label="Palielināt foto: '+photo.label+'"><span class="work-media"><img class="work-photo" src="'+src+'" alt="'+photo.label+' — paveiktā darba fotogrāfija" loading="lazy" decoding="async" width="800" height="500"></span></button><div class="work-meta"><span>'+photo.label+'</span><span>Darba piemērs '+String(i).padStart(2,"0")+'</span></div></article>';
 }
 function worksSection(){return '<section class="section works" id="musu-darbi"><div class="wrap"><div class="section-head"><h2>Mūsu darbi</h2></div><div class="works-grid">'+[1,2,3].map(workCard).join('')+'</div><div class="works-link">'+btn("Apskatīt visus darbus","/musu-darbi","dark")+'</div></div></section>';}
-function worksPage(){return subHero("Mūsu darbi","")+'<section class="section works" id="visi-darbi"><div class="wrap"><div class="works-grid full">'+[1,2,3,4].map(workCard).join('')+'</div><div class="works-page-action"><a class="btn dark works-facebook" href="https://www.facebook.com/search/top/?q=T%C4%ABras%20M%C4%81jas" target="_blank" rel="noopener noreferrer" aria-label="Meklēt Tīras Mājas paveiktos darbus Facebook">Meklēt vairāk darbu Facebook <span aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div></div></section>'+reviewsDemo()+contactSection();}
+
+// Portfolio filters reuse the same verified photo paths as service galleries.
+const portfolioPhotos=services.flatMap(function(service){
+ return (serviceGalleryPhotos[service.slug]||[]).map(function(path){
+  return {folder:path.split("/")[0],file:path.split("/")[1],label:service.name,category:service.slug};
+ });
+});
+function portfolioCard(photo,index){
+ const src="./assets/images/"+photo.folder+"/"+photo.file;
+ return '<article class="work-item portfolio-item" data-portfolio-category="'+photo.category+'"><button class="work-photo-trigger" type="button" data-portfolio-photo="'+index+'" aria-label="Palielināt foto: '+photo.label+'"><span class="work-media"><img class="work-photo" src="'+src+'" alt="'+photo.label+' — darbu fotogrāfija" loading="lazy" decoding="async" width="800" height="500"></span></button><div class="work-meta"><span>'+photo.label+'</span></div></article>';
+}
+function worksPage(){
+ const filters='<div class="portfolio-filters" role="group" aria-label="Filtrēt darbus pēc pakalpojuma"><button type="button" class="portfolio-filter is-active" data-portfolio-filter="all" aria-pressed="true">Visi darbi</button>'+services.map(function(service){return '<button type="button" class="portfolio-filter" data-portfolio-filter="'+service.slug+'" aria-pressed="false">'+service.name+'</button>';}).join('')+'</div>';
+ return subHero("Mūsu darbi","")+'<section class="section works" id="visi-darbi"><div class="wrap">'+filters+'<p class="portfolio-count" id="portfolioCount" role="status" aria-live="polite">'+portfolioPhotos.length+' foto</p><div class="works-grid full portfolio-grid">'+portfolioPhotos.map(portfolioCard).join('')+'</div><div class="works-page-action"><a class="btn dark works-facebook" href="https://www.facebook.com/tirasmajas" target="_blank" rel="noopener noreferrer" aria-label="Apskatīt Tīras Mājas Facebook lapu">Vairāk darbu Facebook <span aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div></div></section>'+reviewsDemo()+contactSection();
+}
 function reviewsDemo(){const reviews=[{quote:"Manam īpašumam vajadzēja izveidot kanalizāciju. Puiši to izdarīja gan ēkas iekšienē, gan ārā. Darbs paveikts izcili un pēc darba teritorija sakopta.",author:"Andris",place:"Saulkrasti"},{quote:"Kā palīgus īpašuma teritorijas sakopšanā, komunikāciju atjaunošanā un citos darbos izvēlējos Tīras Mājas komandu. Darbs paveikts ātri un precīzi.",author:"Santa",place:"Mārupe"},{quote:"Puišiem var uzdot visa veida jautājumus. Pārsteidza tas, ka darbus izdarīja ļoti ātri, un rezultāts ir fantastisks.",author:"Mareks",place:"Valmiera"}];return '<section class="section reviews-demo"><div class="wrap"><div class="section-head"><h2>Klientu atsauksmes</h2></div><div class="review-grid">'+reviews.map(r=>'<article class="review-card"><p>“'+r.quote+'”</p><span class="review-person"><span class="review-avatar">'+r.author.charAt(0)+'</span><span>'+r.author+' · '+r.place+'</span></span></article>').join('')+'</div></div></section>';}
 function aboutSection(){return '<section class="section about" id="par-mums"><div class="wrap"><h2 class="about-heading">Par mums</h2><div class="about-layout"><div class="about-intro"><div class="about-photo" role="img" aria-label="Uzņēmuma darba objektā redzama ekskavācijas tehnika un tranšeja"></div><a class="about-link" href="/par-mums">Vairāk par uzņēmumu <span aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a></div><div class="about-facts"><div><h3>Objekta apsekošana un tāme</h3><p>Darbu apjomu un izmaksas precizējam pēc objekta izvērtēšanas.</p></div><div><h3>Izbūve, remonts un apkope</h3><p>Inženiertīklu izbūve, remonts un apkope.</p></div><div><h3>Darbi visā Latvijā</h3><p>Pakalpojumu sniegšana dažādos Latvijas reģionos.</p></div></div></div></div></section>';}
 function aboutPage(){return subHero("Par mums","")+'<section class="section about"><div class="wrap"><h2 class="about-heading">Inženiertīkli un zemes darbi</h2><div class="about-layout"><div class="about-intro"><div class="about-photo" role="img" aria-label="Uzņēmuma darba objektā redzama ekskavācijas tehnika un tranšeja"></div></div><div class="about-facts"><div><h3>Objekta apsekošana un tāme</h3><p>Darbu apjomu un izmaksas precizējam pēc objekta izvērtēšanas.</p></div><div><h3>Izbūve, remonts un apkope</h3><p>Inženiertīklu izbūve, remonts un apkope.</p></div><div><h3>Darbi visā Latvijā</h3><p>Pakalpojumu sniegšana dažādos Latvijas reģionos.</p></div></div></div></div></section>'+reviewsDemo()+worksSection()+closingCta();}
@@ -130,7 +144,28 @@ function render(){closeWorkLightbox();siteFooter();let parts=pathNow().split("/"
 mobileNav.innerHTML=nav.filter(function(n){return n[0]!=="Pakalpojumi";}).map(function(n){return '<a href="'+n[1]+'">'+n[0]+'</a>';}).join("")+'<a class="mobile-service-label" href="/pakalpojumi">Pakalpojumi</a>'+btn("Pieteikt apsekošanu","/kontakti","");
 if(window.matchMedia('(max-width: 850px)').matches){document.querySelectorAll('.service-groups-page .service-group-details').forEach(function(el,i){el.open=i===0;});}closeMenu();const theForm=document.getElementById("demoForm");if(theForm)theForm.addEventListener("submit",function(ev){ev.preventDefault();const status=document.getElementById("formStatus");status.hidden=false;status.textContent="Demonstrācijas režīms: pieteikums netika nosūtīts. Reālajai lapai tiks pieslēgta pieteikumu saņemšana.";});window.scrollTo({top:0,behavior:"instant"});requestAnimationFrame(updateProcessProgress);setupSectionReveal();}
 document.addEventListener("click",function(e){const a=e.target.closest('a[href="#pieteikums"],a[href="#pakalpojumi"]');if(a){let target=document.querySelector(a.getAttribute("href").replace("#","#"));if(target){e.preventDefault();target.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});}}});
+document.addEventListener("click",function(event){
+ const button=event.target.closest("[data-portfolio-filter]");
+ if(!button)return;
+ const category=button.dataset.portfolioFilter;
+ selectedPortfolioCategory=category;
+ const container=button.closest(".works");
+ container.querySelectorAll("[data-portfolio-filter]").forEach(function(item){
+  const active=item.dataset.portfolioFilter===category;
+  item.classList.toggle("is-active",active);item.setAttribute("aria-pressed",String(active));
+ });
+ let visible=0;
+ container.querySelectorAll(".portfolio-item").forEach(function(item){
+  const show=category==="all"||item.dataset.portfolioCategory===category;
+  item.hidden=!show;if(show)visible++;
+ });
+ const count=container.querySelector("#portfolioCount");
+ if(count)count.textContent=visible+" foto";
+});
+
 let lightboxIndex=0;
+let activeWorkPhotos=featuredWorkPhotos;
+let selectedPortfolioCategory="all";
 let previousFocus=null;
 function closeWorkLightbox(){
  const overlay=document.getElementById("workLightbox");if(!overlay)return;
@@ -138,7 +173,7 @@ function closeWorkLightbox(){
  if(previousFocus&&previousFocus.isConnected)previousFocus.focus();
 }
 function showWorkLightbox(index){
- const all=featuredWorkPhotos;lightboxIndex=(index+all.length)%all.length;
+ const all=activeWorkPhotos;lightboxIndex=(index+all.length)%all.length;
  const item=all[lightboxIndex];
  const overlay=document.getElementById("workLightbox");if(!overlay)return;
  overlay.querySelector(".work-lightbox-photo").src="./assets/images/"+item.folder+"/"+item.file;
@@ -146,14 +181,17 @@ function showWorkLightbox(index){
  overlay.querySelector(".work-lightbox-count").textContent=(lightboxIndex+1)+" / "+all.length;
 }
 document.addEventListener("click",function(e){
- const trigger=e.target.closest("[data-work-photo]");
+ const trigger=e.target.closest("[data-work-photo], [data-portfolio-photo]");
  if(trigger){
   previousFocus=trigger;
+  const isPortfolio=trigger.hasAttribute("data-portfolio-photo");
+  activeWorkPhotos=isPortfolio?portfolioPhotos.filter(function(photo){return selectedPortfolioCategory==="all"||photo.category===selectedPortfolioCategory;}):featuredWorkPhotos;
+  const selectedIndex=isPortfolio?activeWorkPhotos.indexOf(portfolioPhotos[Number(trigger.dataset.portfolioPhoto)]):Number(trigger.dataset.workPhoto);
   const overlay=document.createElement("div");
   overlay.id="workLightbox";overlay.className="work-lightbox";overlay.setAttribute("role","dialog");overlay.setAttribute("aria-modal","true");overlay.setAttribute("aria-label","Darbu foto galerija");
   overlay.innerHTML='<button type="button" class="work-lightbox-close" data-work-close aria-label="Aizvērt foto">×</button><button type="button" class="work-lightbox-prev" data-work-prev aria-label="Iepriekšējais foto">‹</button><figure><img class="work-lightbox-photo" alt=""><figcaption class="work-lightbox-count"></figcaption></figure><button type="button" class="work-lightbox-next" data-work-next aria-label="Nākamais foto">›</button>';
   document.body.appendChild(overlay);document.body.classList.add("work-lightbox-open");
-  showWorkLightbox(Number(trigger.dataset.workPhoto));overlay.querySelector("[data-work-close]").focus();
+  showWorkLightbox(selectedIndex);overlay.querySelector("[data-work-close]").focus();
   return;
  }
  if(e.target.closest("[data-work-close]")||e.target.id==="workLightbox")closeWorkLightbox();

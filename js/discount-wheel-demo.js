@@ -18,6 +18,7 @@
   }
   function open(){
     if(closed||!modal.hidden||document.querySelector(".work-lightbox"))return;
+    if(document.querySelector("#cookieBanner:not([hidden]), #cookieSettings:not([hidden])")){window.setTimeout(open,2500);return;}
     lastFocused=document.activeElement;
     modal.hidden=false;document.body.classList.add("discount-modal-open");
     modal.querySelector(".discount-close").focus({preventScroll:true});

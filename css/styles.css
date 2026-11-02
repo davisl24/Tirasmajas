@@ -746,3 +746,12 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 .excavation-preparation-heading{width:100%;max-width:none;margin-bottom:32px}
 .excavation-preparation-heading h2{max-width:none;width:100%;margin:0;white-space:normal;text-wrap:balance}
 @media(max-width:560px){.service-scope .detail-layout>div:first-child{margin-bottom:24px}.excavation-preparation-heading{margin-bottom:22px}}
+
+
+/* Eight service detail pages: left-aligned scope heading and tighter intro-to-scope rhythm */
+.service-when.section{padding-bottom:28px}
+.service-scope.section{padding-top:28px}
+.service-scope .detail-layout>div:first-child{width:100%;max-width:none;text-align:left}
+.service-scope .detail-layout>div:first-child h2{width:100%;max-width:none;text-align:left;margin-left:0;margin-right:0}
+@media(max-width:800px){.service-when.section{padding-bottom:22px}.service-scope.section{padding-top:22px}}
+@media(max-width:540px){.service-when.section{padding-bottom:18px}.service-scope.section{padding-top:18px}}

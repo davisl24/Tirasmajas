@@ -798,3 +798,25 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 /* Real photographs in the existing home and portfolio work grids. */
 .work-media{overflow:hidden;padding:0}
 .work-photo{display:block;width:100%;height:100%;object-fit:cover;min-height:inherit}
+
+/* Approved mobile separators and portfolio lightbox — scoped changes only. */
+@media(max-width:850px){
+ .services:not(.services-directory) .section-head{border-bottom:1px solid #26342b;padding-bottom:20px}
+ .service-groups-page .service-group-details>summary{border-top:1px solid #cfd2cb}
+ .service-groups-page .service-group:first-child .service-group-details>summary{border-top:1px solid #26342b}
+ .mobile-nav>a:not(.btn){border-bottom:1px solid #d7d9d2;border-radius:0}
+ .mobile-nav .mobile-service-label{border-bottom:1px solid #d7d9d2;padding-bottom:12px}
+ .mobile-nav .service-groups-mobile .service-group{border-bottom:1px solid #d7d9d2}
+}
+.work-photo-trigger{padding:0;display:block;width:100%;border:0;background:transparent;text-align:left;cursor:zoom-in}
+.work-photo-trigger .work-media{display:block}
+.work-lightbox-open{overflow:hidden}
+.work-lightbox{position:fixed;inset:0;z-index:200;background:rgba(11,15,12,.94);display:flex;align-items:center;justify-content:center;color:white;padding:60px 64px}
+.work-lightbox figure{margin:0;max-width:min(1100px,100%);width:100%;text-align:center}
+.work-lightbox-photo{display:block;max-width:100%;max-height:calc(100dvh - 140px);width:auto;height:auto;object-fit:contain;margin:auto}
+.work-lightbox-count{margin-top:16px;font-size:13px;letter-spacing:.06em}
+.work-lightbox button{position:absolute;display:grid;place-items:center;width:48px;height:48px;border:1px solid #ffffff66;color:white;border-radius:50%;background:#19211dd9;font-size:34px;line-height:1}
+.work-lightbox-close{top:18px;right:22px}
+.work-lightbox-prev{left:18px;top:50%;transform:translateY(-50%)}
+.work-lightbox-next{right:18px;top:50%;transform:translateY(-50%)}
+@media(max-width:650px){.work-lightbox{padding:72px 12px}.work-lightbox-prev{left:10px}.work-lightbox-next{right:10px}.work-lightbox-prev,.work-lightbox-next{top:auto;bottom:20px;transform:none}.work-lightbox-photo{max-height:calc(100dvh - 190px)}}

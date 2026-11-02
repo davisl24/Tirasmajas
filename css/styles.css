@@ -755,3 +755,19 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 /* Homepage service links: remove decorative row dividers, keep navigation intact */
 .service-groups-page .service-group-links a{border-bottom:0}
 
+
+
+/* Consistent vertical rhythm between intro, work scope and preparation on all 8 detail pages */
+.service-when.section{padding-bottom:44px}
+.service-scope.section{padding-top:44px;padding-bottom:44px}
+.excavation-preparation.section{padding-top:44px}
+@media(max-width:800px){
+ .service-when.section{padding-bottom:32px}
+ .service-scope.section{padding-top:32px;padding-bottom:32px}
+ .excavation-preparation.section{padding-top:32px}
+}
+@media(max-width:540px){
+ .service-when.section{padding-bottom:24px}
+ .service-scope.section{padding-top:24px;padding-bottom:24px}
+ .excavation-preparation.section{padding-top:24px}
+}

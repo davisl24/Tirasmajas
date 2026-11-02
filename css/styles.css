@@ -801,11 +801,13 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 
 /* Approved mobile separators and portfolio lightbox — scoped changes only. */
 @media(max-width:850px){
- .services:not(.services-directory) .section-head{border-bottom:1px solid #26342b;padding-bottom:20px}
+ /* One separator under the title comes from the first group; no duplicate on the heading. */
+ .services:not(.services-directory) .section-head{border-bottom:0;padding-bottom:0}
  .service-groups-page .service-group-details>summary{border-top:1px solid #cfd2cb}
  .service-groups-page .service-group:first-child .service-group-details>summary{border-top:1px solid #26342b}
+ /* Keep main navigation dividers, but do not double the services subgroup separators. */
  .mobile-nav>a:not(.btn){border-bottom:1px solid #d7d9d2;border-radius:0}
- .mobile-nav .mobile-service-label{border-bottom:1px solid #d7d9d2;padding-bottom:12px}
+ .mobile-nav .mobile-service-label{border-bottom:0;padding-bottom:6px}
  .mobile-nav .service-groups-mobile .service-group{border-bottom:1px solid #d7d9d2}
 }
 .work-photo-trigger{padding:0;display:block;width:100%;border:0;background:transparent;text-align:left;cursor:zoom-in}

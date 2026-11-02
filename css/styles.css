@@ -853,3 +853,10 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
  .service-group-details[open]>.service-group-links{animation:accordion-appear .22s ease-out both}
  @keyframes accordion-appear{from{opacity:.65;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 }
+
+/* Approved single-play hero entrance; preserve existing geometry. */
+@media(prefers-reduced-motion:no-preference){
+ .hero .hero-inner>h1{animation:hero-enter .4s ease-out both}
+ .hero .hero-description,.hero .hero-actions{animation:hero-enter .4s ease-out .09s both}
+ @keyframes hero-enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+}

@@ -21,6 +21,7 @@ const routes = [
   ["privatums", () => pages.privacyPage()]
 ];
 const siteUrl = (process.env.SITE_URL || "").replace(/\/+$/, "");
+const sharingBase = siteUrl || (process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : "");
 const publicReady = process.env.PUBLIC_SITE_READY === "true" && /^https:\/\/[^/]+$/.test(siteUrl);
 const escapeAttr = value => String(value).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
 const navHtml = pages.nav.map(([name,href]) => '<a href="' + href + '">' + name + '</a>').join("");
@@ -50,6 +51,13 @@ for (const [path,makeContent] of routes) {
     .replace(/<title>[\s\S]*?<\/title>/, "<title>" + escapeAttr(seo.title) + (publicReady ? "" : " — demo") + "</title>")
     .replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="' + escapeAttr(seo.description) + '">')
     .replace(/<meta name="robots" content="[^"]*">/, '<meta name="robots" content="' + (publicReady ? "index, follow" : "noindex, nofollow") + '">')
+    .replace(/<meta property="og:title" content="[^"]*">/, '<meta property="og:title" content="' + escapeAttr(seo.title) + '">')
+    .replace(/<meta property="og:description" content="[^"]*">/, '<meta property="og:description" content="' + escapeAttr(seo.description) + '">')
+    .replace(/<meta name="twitter:title" content="[^"]*">/, '<meta name="twitter:title" content="' + escapeAttr(seo.title) + '">')
+    .replace(/<meta name="twitter:description" content="[^"]*">/, '<meta name="twitter:description" content="' + escapeAttr(seo.description) + '">')
+    .replace(/<meta property="og:image" content="[^"]*">/, '<meta property="og:image" content="' + escapeAttr((sharingBase || "") + '/assets/tiras-majas-logo-apals.png') + '">')
+    .replace(/<meta name="twitter:image" content="[^"]*">/, '<meta name="twitter:image" content="' + escapeAttr((sharingBase || "") + '/assets/tiras-majas-logo-apals.png') + '">')
+    .replace("</head>", (sharingBase ? '<meta property="og:url" content="' + escapeAttr(sharingBase + "/" + (path ? path + "/" : "")) + '">' : "") + "</head>")
     .replace("</head>", (publicReady ? '<link rel="canonical" href="' + escapeAttr(url) + '">' : "") + ld + "</head>")
     .replace('<main id="app"></main>', '<main id="app">' + makeContent() + '</main>')
     .replace('<nav class="nav" id="nav" aria-label="Galvenā navigācija"></nav>', '<nav class="nav" id="nav" aria-label="Galvenā navigācija">' + navHtml + '</nav>')

@@ -1,0 +1,8 @@
+{
+  "name": "tiras-majas",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}

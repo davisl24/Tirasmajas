@@ -63,24 +63,23 @@ const taskSvgShapes={"shovel":"<path d=\"M17 4l3 3\" />\n  <path d=\"M18.5 5.5l-
 const taskIconTypes={"pamati":["shovel","hammer","temperature","shield-check","trowel"],"fasades":["brush","temperature","grid-3x3","trowel","wall"],"jumti":["tool","home","stack-2","home","droplet"],"logi-durvis":["tool","window","door","shield-check","trowel"],"zemes-darbi":["shovel","shovel","tractor","ruler-measure"],"inzeniertikli":["pipeline","pipeline","droplet","flame","bath"],"gridas":["helmet","temperature","grid-3x3","bucket-droplet"],"ieksdarbi":["wall","home","wall","trowel","brush"]};
 function taskCardIcon(slug,index){const name=(taskIconTypes[slug]||[])[index]||'tool';return '<svg class="service-task-icon-svg" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+taskSvgShapes[name]+'</svg>';}
 const servicePreparationGuides={"pamati":["Kas jāizvērtē pirms pamatu darbiem?",[["Pamatu stāvoklis","Jānoskaidro, kur ir mitruma, plaisu vai citu bojājumu pazīmes un kas tās izraisa."],["Piekļuve pamatiem","Jāizvērtē, vai ap ēku ir vieta pamatu atrakšanai un materiālu piegādei."],["Mitruma novadīšana","Jānoskaidro, kur nonāk lietus un gruntsūdeņi un vai nepieciešami papildu risinājumi."]]],"fasades":["Kas jāizvērtē pirms fasādes darbiem?",[["Sienu tehniskais stāvoklis","Jānovērtē plaisas, atdalījies apmetums un mitruma pazīmes pirms apdares izvēles."],["Siltināšanas nepieciešamība","Jāizlemj, vai vajadzīgs tikai virsmas remonts vai arī ēkas ārsienu siltināšana."],["Piekļuve fasādei","Jāparedz vieta sastatnēm, materiālu piegādei un drošai darbu veikšanai."]]],"jumti":["Kas jāizvērtē pirms jumta darbiem?",[["Seguma un spāru stāvoklis","Jānoskaidro, vai bojāts tikai jumta segums vai arī nesošās konstrukcijas."],["Jumta materiāli","Jāizvērtē seguma veids un tā piemērotība esošajai jumta konstrukcijai."],["Piekļuve un laikapstākļi","Jāplāno droša piekļuve jumtam un ēkas aizsardzība darbu laikā."]]],"logi-durvis":["Kas jāizvērtē pirms logu un durvju nomaiņas?",[["Nomaiņa vai remonts","Jāpārbauda, vai problēmu iespējams novērst ar regulēšanu vai blīvējumu maiņu."],["Izmēri un konstrukcijas","Jāprecizē aiļu izmēri, vēršanās virziens un jaunā loga vai durvju risinājums."],["Aiļu apdare","Jāvienojas, kā atjaunot virsmas, kuras var tikt skartas demontāžas laikā."]]],"zemes-darbi":["Kas jāņem vērā pirms rakšanas darbiem?",[["Piekļuve tehnikai","Vai ekskavators var iebraukt teritorijā un droši piekļūt paredzētajai rakšanas vietai?"],["Pazemes komunikācijas","Pirms rakšanas jānoskaidro, kur atrodas elektrības kabeļi, ūdensvads un citi pazemes tīkli."],["Izraktās grunts novietošana","Jāparedz vieta, kur novietot izrakto zemi, vai jāvienojas par tās izvešanu."]]],"inzeniertikli":["Kas jānoskaidro pirms inženiertīklu izbūves?",[["Pieslēguma iespējas","Jānoskaidro, vai ir pieejami centralizētie tīkli vai jāparedz individuāla sistēma."],["Esošās komunikācijas","Jāzina esošo cauruļvadu atrašanās vietas un paredzētās pieslēgumu vietas."],["Tehniskās prasības","Ja vajadzīgs jauns pieslēgums, jāprecizē pakalpojuma sniedzēja nosacījumi un dokumentācija."]]],"gridas":["Kas jānoskaidro pirms grīdas izbūves?",[["Pamatnes stāvoklis","Jāizvērtē esošās grīdas pamatne un paredzētais jaunās grīdas augstums."],["Siltināšana un slāņi","Jānoskaidro, kādi siltuma un mitruma aizsardzības slāņi nepieciešami."],["Komunikācijas grīdā","Pirms betonēšanas jāsaskaņo cauruļu un citu paredzēto komunikāciju izvietojums."]]],"ieksdarbi":["Kas jāizplāno pirms iekšējās apdares darbiem?",[["Telpu plānojums","Jāvienojas par starpsienu, griestu un citu konstrukciju atrašanās vietām."],["Komunikāciju izvietojums","Pirms sienu un griestu aizvēršanas jāprecizē elektroinstalācijas un citas komunikācijas."],["Apdares rezultāts","Jāvienojas, līdz kādam gatavības līmenim virsmas jāsagatavo un kāda apdare paredzēta."]]]};
-const servicePhotos={
- "pamati":2,"fasades":7,"jumti":19,"logi-durvis":4,
- "zemes-darbi":2,"inzeniertikli":2,"gridas":7,"ieksdarbi":44
+/* Curated, duplicate-free gallery paths. Shared photos may illustrate related work.
+   Original assets remain in their current folders. */
+const serviceGalleryPhotos={
+ "pamati":["pamati/pamati-01.webp","pamati/pamati-02.webp","raksanas-darbi/raksanas-darbi-01.webp","raksanas-darbi/raksanas-darbi-02.webp"],
+ "fasades":["fasades/fasades-01.webp","fasades/fasades-02.webp","fasades/fasades-03.webp","fasades/fasades-04.webp","fasades/fasades-05.webp","fasades/fasades-06.webp","fasades/fasades-07.webp"],
+ "jumti":["jumti/jumti-01.webp","jumti/jumti-03.webp","jumti/jumti-05.webp","jumti/jumti-07.webp","jumti/jumti-09.webp","jumti/jumti-12.webp","jumti/jumti-16.webp","jumti/jumti-19.webp"],
+ "logi-durvis":["logi-durvis/logi-durvis-01.webp","logi-durvis/logi-durvis-02.webp","logi-durvis/logi-durvis-03.webp","logi-durvis/logi-durvis-04.webp"],
+ "zemes-darbi":["raksanas-darbi/raksanas-darbi-01.webp","raksanas-darbi/raksanas-darbi-02.webp","pamati/pamati-01.webp","pamati/pamati-02.webp","inzeniertikli/inzeniertikli-01.webp","inzeniertikli/inzeniertikli-02.webp"],
+ "inzeniertikli":["inzeniertikli/inzeniertikli-01.webp","inzeniertikli/inzeniertikli-02.webp","raksanas-darbi/raksanas-darbi-01.webp","raksanas-darbi/raksanas-darbi-02.webp"],
+ "gridas":["gridas/gridas-01.webp","gridas/gridas-02.webp","gridas/gridas-03.webp","gridas/gridas-04.webp","gridas/gridas-05.webp","gridas/gridas-06.webp","gridas/gridas-07.webp"],
+ "ieksdarbi":["ieksdarbi/ieksdarbi-01.webp","ieksdarbi/ieksdarbi-06.webp","ieksdarbi/ieksdarbi-12.webp","ieksdarbi/ieksdarbi-18.webp","ieksdarbi/ieksdarbi-24.webp","ieksdarbi/ieksdarbi-30.webp","ieksdarbi/ieksdarbi-37.webp","ieksdarbi/ieksdarbi-44.webp"]
 };
-const servicePhotoFolders={"zemes-darbi":"raksanas-darbi"};
-const excavationExtraPhotos=[
- "pamati/pamati-01.webp","pamati/pamati-02.webp",
- "inzeniertikli/inzeniertikli-01.webp","inzeniertikli/inzeniertikli-02.webp"
-];
 function serviceGallery(slug){
- const folder=servicePhotoFolders[slug]||slug;
- const count=servicePhotos[slug]||0;
- return Array.from({length:count+(slug==="zemes-darbi"?excavationExtraPhotos.length:0)},function(_,index){
-  const number=String(index+1).padStart(2,"0");
-  const source=(slug==="zemes-darbi"&&index>=count)
-   ? "./assets/images/"+excavationExtraPhotos[index-count]
-   : "./assets/images/"+folder+"/"+folder+"-"+number+".webp";
-  return '<div class="service-gallery-item"><img class="service-gallery-image" src="'+source+'" alt="'+services.find(function(s){return s.slug===slug;}).name+' — darba foto '+(index+1)+'" loading="lazy" decoding="async" width="640" height="480"></div>';
+ const photos=serviceGalleryPhotos[slug]||[];
+ const service=services.find(function(s){return s.slug===slug;});
+ return photos.map(function(path,index){
+  return '<div class="service-gallery-item"><img class="service-gallery-image" src="./assets/images/'+path+'" alt="'+service.name+' — darba foto '+(index+1)+'" loading="lazy" decoding="async" width="640" height="480"></div>';
  }).join("");
 }
 function detailPage(slug){

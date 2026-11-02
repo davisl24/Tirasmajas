@@ -822,3 +822,10 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 .work-lightbox-prev{left:18px;top:50%;transform:translateY(-50%)}
 .work-lightbox-next{right:18px;top:50%;transform:translateY(-50%)}
 @media(max-width:650px){.work-lightbox{padding:72px 12px}.work-lightbox-prev{left:10px}.work-lightbox-next{right:10px}.work-lightbox-prev,.work-lightbox-next{top:auto;bottom:20px;transform:none}.work-lightbox-photo{max-height:calc(100dvh - 190px)}}
+
+/* Scroll-to-top: quiet floating control; hidden until needed. */
+.scroll-to-top{position:fixed;right:24px;bottom:24px;z-index:36;width:48px;height:48px;display:grid;place-items:center;padding:0;border:1px solid #cdd2ca;border-radius:50%;background:#f9f8f4;color:#202821;box-shadow:0 7px 20px #00000018;transition:background .2s ease,transform .2s ease}
+.scroll-to-top[hidden]{display:none}
+.scroll-to-top:hover{background:#e9ebe5;transform:translateY(-2px)}
+@media(max-width:760px){.scroll-to-top{right:16px;bottom:18px;width:46px;height:46px}}
+@media(prefers-reduced-motion:reduce){.scroll-to-top{transition:none}}

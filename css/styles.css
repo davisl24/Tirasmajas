@@ -860,3 +860,30 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
  .hero .hero-description,.hero .hero-actions{animation:hero-enter .4s ease-out .09s both}
  @keyframes hero-enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 }
+
+/* Illustrative discount-wheel popup (no network, no stored email). */
+.discount-modal[hidden],.discount-form[hidden],.discount-result[hidden]{display:none!important}
+.discount-modal{position:fixed;inset:0;z-index:110;display:grid;place-items:center;padding:20px;background:rgba(15,24,18,.72);backdrop-filter:blur(5px)}
+body.discount-modal-open{overflow:hidden}
+.discount-panel{width:min(850px,100%);max-height:min(720px,calc(100dvh - 32px));overflow:auto;position:relative;display:grid;grid-template-columns:1fr 1fr;background:#f6f5f1;border-radius:20px;box-shadow:0 30px 90px #0005;color:#202821}
+.discount-close{position:absolute;top:13px;right:14px;z-index:3;width:40px;height:40px;border:0;background:#ffffffd9;color:#202821;border-radius:50%;font-size:27px;line-height:1}
+.discount-copy{padding:clamp(25px,4vw,48px);display:flex;flex-direction:column;justify-content:center;gap:16px}
+.discount-eyebrow{font-size:10px;letter-spacing:.12em;font-weight:800;color:#647368}
+.discount-copy h2{font-size:clamp(28px,3vw,41px);line-height:1.08;letter-spacing:-.05em}
+.discount-copy>p:not(.discount-eyebrow){font-size:14px;color:#586159;line-height:1.6}
+.discount-form{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.discount-form label{font-size:12px;font-weight:700}
+.discount-form input{height:48px;border:1px solid #cfd4cb;border-radius:7px;padding:0 14px;background:white;min-width:0;color:#202821}
+.discount-spin{min-height:48px;display:flex;justify-content:center;align-items:center;gap:12px;border:0;border-radius:7px;background:#F28A35;color:#202821;font-weight:800;padding:12px 20px}
+.discount-spin:disabled{opacity:.6;cursor:default}
+.discount-note{font-size:11px!important;line-height:1.5!important;color:#6b736b!important}
+.discount-skip{align-self:start;background:none;border:0;padding:5px 0;color:#586159;text-decoration:underline;text-underline-offset:4px;font-size:12px}
+.discount-wheel-side{position:relative;display:grid;place-items:center;background:#20382b;min-width:0;overflow:hidden;padding:45px 20px}
+.discount-wheel{width:min(350px,100%);aspect-ratio:1;border-radius:50%;position:relative;border:8px solid #fbf8f0;box-shadow:0 14px 35px #0004;background:conic-gradient(from 0deg,#e8e4d6 0deg 60deg,#294c37 60deg 120deg,#d7bb97 120deg 180deg,#294c37 180deg 240deg,#e8e4d6 240deg 300deg,#294c37 300deg 360deg)}
+.discount-wheel span{position:absolute;left:50%;top:50%;font-size:clamp(12px,1.5vw,17px);font-weight:800;color:#fff;transform:rotate(var(--a)) translateY(-115px) rotate(calc(-1 * var(--a)));transform-origin:center;white-space:nowrap}
+.discount-wheel span:nth-child(1),.discount-wheel span:nth-child(3),.discount-wheel span:nth-child(5){color:#20382b}
+.discount-pointer{position:absolute;top:calc(50% - min(175px,43%) - 13px);left:50%;transform:translateX(-50%);z-index:2;border-left:13px solid transparent;border-right:13px solid transparent;border-top:24px solid #F28A35;filter:drop-shadow(0 2px 2px #0004)}
+.discount-wheel-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:62px;height:62px;display:grid;place-items:center;border-radius:50%;background:#f6f5f1;border:5px solid #20382b;color:#20382b;font-size:14px;font-weight:800;letter-spacing:-.04em}
+.discount-result{display:flex;flex-direction:column;gap:12px}.discount-result p{font-size:13px;color:#586159}.discount-result strong{font-size:64px;line-height:1;color:#244633}
+@media(max-width:650px){.discount-panel{grid-template-columns:1fr}.discount-wheel-side{grid-row:1;padding:27px 20px 18px}.discount-wheel{width:min(230px,60vw)}.discount-wheel span{font-size:12px;transform:rotate(var(--a)) translateY(-76px) rotate(calc(-1 * var(--a)))}.discount-wheel-hub{width:46px;height:46px;font-size:11px}.discount-pointer{top:17px}.discount-copy{gap:11px;padding:23px}.discount-copy h2{font-size:29px}.discount-modal{padding:12px}}
+@media(prefers-reduced-motion:reduce){.discount-wheel{transition:none!important}}

@@ -836,3 +836,14 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
  .service-groups-page .service-group,.service-groups-page .service-group-details,.service-groups-page .service-group-details>summary,.service-groups-page .service-group:first-child .service-group-details>summary{border:0!important;border-top:0!important;border-bottom:0!important}
  .mobile-nav>a:not(.btn),.mobile-nav .mobile-service-label,.mobile-nav .service-groups-mobile .service-group{border:0!important;border-bottom:0!important}
 }
+
+/* Subtle content reveal and work-photo hover; no layout or spacing changes. */
+@media(prefers-reduced-motion:no-preference){
+ #app .reveal-section{animation:section-enter .38s ease-out both}
+ @keyframes section-enter{from{opacity:.75;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ .work-photo-trigger .work-photo{transition:transform .35s ease}
+ .work-photo-trigger:hover .work-photo{transform:scale(1.025)}
+ .work-photo-trigger .work-media{overflow:hidden}
+}

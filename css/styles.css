@@ -829,3 +829,10 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 .scroll-to-top:hover{background:#e9ebe5;transform:translateY(-2px)}
 @media(max-width:760px){.scroll-to-top{right:16px;bottom:18px;width:46px;height:46px}}
 @media(prefers-reduced-motion:reduce){.scroll-to-top{transition:none}}
+
+/* Mobile: no dividing lines in the service accordion or navigation. */
+@media(max-width:850px){
+ .services:not(.services-directory) .section-head{border-bottom:0!important}
+ .service-groups-page .service-group,.service-groups-page .service-group-details,.service-groups-page .service-group-details>summary,.service-groups-page .service-group:first-child .service-group-details>summary{border:0!important;border-top:0!important;border-bottom:0!important}
+ .mobile-nav>a:not(.btn),.mobile-nav .mobile-service-label,.mobile-nav .service-groups-mobile .service-group{border:0!important;border-bottom:0!important}
+}

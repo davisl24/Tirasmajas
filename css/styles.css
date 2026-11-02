@@ -619,7 +619,7 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 .service-task-list p{color:var(--muted);font-size:15px;line-height:1.65;margin:0;max-width:560px}
 .service-faq{background:#f4f3ef}
 .service-faq-items{min-width:0}
-.service-faq-items details{border-bottom:1px solid rgba(39,51,43,.19)}
+.service-faq-items details{border-bottom:0}
 .service-faq-items summary{list-style:none;cursor:pointer;padding:20px 30px 20px 0;font-weight:600;line-height:1.5;position:relative}
 .service-faq-items summary::-webkit-details-marker{display:none}
 .service-faq-items summary:after{content:"+";position:absolute;right:4px;top:19px;font-size:23px;font-weight:400}

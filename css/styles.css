@@ -791,3 +791,6 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
  .service-scope.section{padding-top:28px;padding-bottom:28px}
  .excavation-preparation.section{padding-top:28px;padding-bottom:var(--space-section)}
 }
+
+/* Project photos within the existing service-gallery layout. */
+.service-gallery-image{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;background:#d9dcd4}

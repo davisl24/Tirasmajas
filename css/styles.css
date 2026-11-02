@@ -771,3 +771,23 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
  .service-scope.section{padding-top:24px;padding-bottom:24px}
  .excavation-preparation.section{padding-top:24px}
 }
+
+
+/* Unified spacing rhythm — desktop 88, mobile 56. Preserve approved card geometry. */
+:root{--space-section:88px;--space-heading-content:32px;--space-heading-copy:16px}
+.section{padding-top:var(--space-section);padding-bottom:var(--space-section)}
+.section-head{margin-bottom:var(--space-heading-content)}
+.section-head p{margin-top:var(--space-heading-copy)}
+/* Detail sections share a visual gap of 88px: 44px on each adjoining side. */
+.service-when.section{padding-top:var(--space-section);padding-bottom:44px}
+.service-scope.section{padding-top:44px;padding-bottom:44px}
+.excavation-preparation.section{padding-top:44px;padding-bottom:var(--space-section)}
+.service-scope .detail-layout>div:first-child{margin-bottom:var(--space-heading-content)}
+.excavation-preparation-heading{margin-bottom:var(--space-heading-content)}
+/* Gallery and closing CTA keep their own larger visual breathing room. */
+@media(max-width:800px){
+ :root{--space-section:56px;--space-heading-content:24px;--space-heading-copy:12px}
+ .service-when.section{padding-top:var(--space-section);padding-bottom:28px}
+ .service-scope.section{padding-top:28px;padding-bottom:28px}
+ .excavation-preparation.section{padding-top:28px;padding-bottom:var(--space-section)}
+}

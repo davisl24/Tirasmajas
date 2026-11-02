@@ -722,3 +722,18 @@ details[open]>.group-chevron,details[open]>summary .group-chevron{transform:rota
 .services-directory .service-directory-card:hover .service-directory-symbol{background:#dce1d6}
 @media(max-width:1000px){.services-directory .service-directory-card{min-height:295px}.services-directory .service-directory-symbol{height:112px;min-height:112px}.services-directory .service-directory-symbol svg{width:66px;height:66px}}
 @media(max-width:560px){.services-directory .service-directory-card{min-height:300px}.services-directory .service-directory-symbol{height:93px;min-height:93px}.services-directory .service-directory-symbol svg{width:60px;height:60px}.services-directory .service-directory-copy{padding:14px 12px 13px}}
+
+
+/* Excavation service pilot: practical guidance between scope and gallery */
+.excavation-preparation{padding-top:70px;padding-bottom:76px}
+.excavation-preparation-heading{max-width:740px;margin-bottom:32px}
+.excavation-preparation-heading h2{margin:0 0 13px}
+.excavation-preparation-heading p{max-width:620px;margin:0;color:#697169;line-height:1.65}
+.excavation-preparation-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.excavation-preparation-item{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:25px 24px;border-radius:16px;background:#eeede7;color:#202821}
+.excavation-preparation-icon{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px}
+.excavation-preparation-icon svg{width:43px;height:43px;stroke-width:1.6}
+.excavation-preparation-item h3{margin:0 0 10px;font-size:19px;line-height:1.3;letter-spacing:-.025em}
+.excavation-preparation-item p{margin:0;font-size:15px;line-height:1.6;color:#5e685f}
+@media(max-width:850px){.excavation-preparation-list{grid-template-columns:1fr}.excavation-preparation-item{flex-direction:row;gap:18px}.excavation-preparation-icon{flex-shrink:0}}
+@media(max-width:560px){.excavation-preparation{padding-top:48px;padding-bottom:52px}.excavation-preparation-heading{margin-bottom:23px}.excavation-preparation-item{padding:19px 16px;gap:14px}.excavation-preparation-item h3{font-size:17px}.excavation-preparation-item p{font-size:14px}}

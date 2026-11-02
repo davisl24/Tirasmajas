@@ -142,7 +142,7 @@ function setupSectionReveal(){
 }
 function render(){closeWorkLightbox();siteFooter();let parts=pathNow().split("/").filter(Boolean);let section=parts[0]||"";app.innerHTML=!section?home():section==="pakalpojumi"?(parts[1]?detailPage(parts[1]):servicesPage()):section==="musu-darbi"?worksPage():section==="par-mums"?aboutPage():section==="kontakti"?contactsPage():section==="privatums"?privacyPage():notFound();setPageMeta(section,parts[1]);desktopNav.innerHTML=nav.map(function(n){const link='<a href="'+n[1]+'"'+((!section&&n[1]==="/")||(section&&n[1]==="/"+section)?' aria-current="page"':'')+'>'+n[0]+'</a>';return n[0]==="Pakalpojumi"?'<div class="nav-service-group">'+link+'<div class="nav-service-menu">'+groupedServices("nav")+'</div></div>':link;}).join("");
 mobileNav.innerHTML=nav.filter(function(n){return n[0]!=="Pakalpojumi";}).map(function(n){return '<a href="'+n[1]+'">'+n[0]+'</a>';}).join("")+'<a class="mobile-service-label" href="/pakalpojumi">Pakalpojumi</a>'+btn("Pieteikt apsekošanu","/kontakti","");
-if(window.matchMedia('(max-width: 850px)').matches){document.querySelectorAll('.service-groups-page .service-group-details').forEach(function(el,i){el.open=i===0;});}closeMenu();const theForm=document.getElementById("demoForm");if(theForm)theForm.addEventListener("submit",function(ev){ev.preventDefault();const status=document.getElementById("formStatus");status.hidden=false;status.textContent="Demonstrācijas režīms: pieteikums netika nosūtīts. Reālajai lapai tiks pieslēgta pieteikumu saņemšana.";});window.scrollTo({top:0,behavior:"instant"});requestAnimationFrame(updateProcessProgress);setupSectionReveal();}
+if(window.matchMedia('(max-width: 850px)').matches){document.querySelectorAll('.service-groups-page .service-group-details').forEach(function(el,i){el.open=i===0;});}closeMenu();const theForm=document.getElementById("demoForm");if(theForm)theForm.addEventListener("submit",function(ev){ev.preventDefault();const status=document.getElementById("formStatus");status.hidden=false;status.textContent="Demonstrācijas režīms: pieteikums netika nosūtīts. Reālajai lapai tiks pieslēgta pieteikumu saņemšana.";});window.scrollTo({top:0,behavior:"instant"});requestAnimationFrame(updateProcessProgress);setupSectionReveal();initPortfolioAutoplay();}
 document.addEventListener("click",function(e){const a=e.target.closest('a[href="#pieteikums"],a[href="#pakalpojumi"]');if(a){let target=document.querySelector(a.getAttribute("href").replace("#","#"));if(target){e.preventDefault();target.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});}}});
 document.addEventListener("click",function(event){
  const button=event.target.closest("[data-portfolio-filter]");
@@ -182,7 +182,7 @@ document.addEventListener("click",function(event){
  const step=event.target.closest("[data-portfolio-step]");
  if(step)portfolioStep(Number(step.dataset.portfolioStep));
 });
-(function initPortfolioAutoplay(){
+function initPortfolioAutoplay(){
  const track=document.getElementById("portfolioTrack");
  if(!track||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
  let paused=false;
@@ -197,7 +197,7 @@ document.addEventListener("click",function(event){
  window.setInterval(()=>{
   if(!paused&&!document.hidden&&!document.querySelector("#workLightbox")&&!document.querySelector(".discount-modal:not([hidden])")&&track.getBoundingClientRect().top<innerHeight&&track.getBoundingClientRect().bottom>0)portfolioStep(1);
  },4800);
-})();
+}
 
 let lightboxIndex=0;
 let activeWorkPhotos=featuredWorkPhotos;

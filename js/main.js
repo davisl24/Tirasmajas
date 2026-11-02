@@ -51,11 +51,6 @@ function workCard(i){
 function worksSection(){return '<section class="section works" id="musu-darbi"><div class="wrap"><div class="section-head"><h2>Mūsu darbi</h2></div><div class="works-grid">'+[1,2,3].map(workCard).join('')+'</div><div class="works-link">'+btn("Apskatīt visus darbus","/musu-darbi","dark")+'</div></div></section>';}
 
 // Portfolio filters reuse the same verified photo paths as service galleries.
-const portfolioPhotos=services.flatMap(function(service){
- return (serviceGalleryPhotos[service.slug]||[]).map(function(path){
-  return {folder:path.split("/")[0],file:path.split("/")[1],label:service.name,category:service.slug};
- });
-});
 function portfolioCard(photo,index){
  const src="./assets/images/"+photo.folder+"/"+photo.file;
  return '<article class="work-item portfolio-item" data-portfolio-category="'+photo.category+'"><button class="work-photo-trigger" type="button" data-portfolio-photo="'+index+'" aria-label="Palielināt foto: '+photo.label+'"><span class="work-media"><img class="work-photo" src="'+src+'" alt="'+photo.label+' — darbu fotogrāfija" loading="lazy" decoding="async" width="800" height="500"></span></button><div class="work-meta"><span>'+photo.label+'</span></div></article>';
@@ -89,6 +84,11 @@ const serviceGalleryPhotos={
  "gridas":["gridas/gridas-01.webp","gridas/gridas-02.webp","gridas/gridas-03.webp","gridas/gridas-04.webp","gridas/gridas-05.webp","gridas/gridas-06.webp","gridas/gridas-07.webp"],
  "ieksdarbi":["ieksdarbi/ieksdarbi-01.webp","ieksdarbi/ieksdarbi-06.webp","ieksdarbi/ieksdarbi-12.webp","ieksdarbi/ieksdarbi-18.webp","ieksdarbi/ieksdarbi-24.webp","ieksdarbi/ieksdarbi-30.webp","ieksdarbi/ieksdarbi-37.webp","ieksdarbi/ieksdarbi-44.webp"]
 };
+const portfolioPhotos=services.flatMap(function(service){
+ return (serviceGalleryPhotos[service.slug]||[]).map(function(path){
+  return {folder:path.split("/")[0],file:path.split("/")[1],label:service.name,category:service.slug};
+ });
+});
 function serviceGallery(slug){
  const photos=serviceGalleryPhotos[slug]||[];
  const service=services.find(function(s){return s.slug===slug;});

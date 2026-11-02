@@ -152,6 +152,14 @@ function updateProcessProgress(){const wrap=document.querySelector(".process-ste
 window.addEventListener("scroll",updateProcessProgress,{passive:true});window.addEventListener("resize",updateProcessProgress);
 document.addEventListener("click",function(event){const link=event.target.closest('a[href^="#/"]');if(!link)return;const to=link.getAttribute("href");if(!to)return;event.preventDefault();if(location.hash!==to){location.hash=to;}else{render();}});
 document.body.classList.add("first-load");
+const scrollToTopButton=document.getElementById("scrollToTop");
+if(scrollToTopButton){
+ const updateScrollToTop=function(){scrollToTopButton.hidden=window.scrollY<500;};
+ scrollToTopButton.addEventListener("click",function(){window.scrollTo({top:0,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});});
+ window.addEventListener("scroll",updateScrollToTop,{passive:true});
+ window.addEventListener("hashchange",function(){requestAnimationFrame(updateScrollToTop);});
+ updateScrollToTop();
+}
 window.addEventListener("hashchange",render);
 render();
 })();

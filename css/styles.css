@@ -887,3 +887,15 @@ body.discount-modal-open{overflow:hidden}
 .discount-result{display:flex;flex-direction:column;gap:12px}.discount-result p{font-size:13px;color:#586159}.discount-result strong{font-size:64px;line-height:1;color:#244633}
 @media(max-width:650px){.discount-panel{grid-template-columns:1fr}.discount-wheel-side{grid-row:1;padding:27px 20px 18px}.discount-wheel{width:min(230px,60vw)}.discount-wheel span{font-size:12px;transform:rotate(var(--a)) translateY(-76px) rotate(calc(-1 * var(--a)))}.discount-wheel-hub{width:46px;height:46px;font-size:11px}.discount-pointer{top:17px}.discount-copy{gap:11px;padding:23px}.discount-copy h2{font-size:29px}.discount-modal{padding:12px}}
 @media(prefers-reduced-motion:reduce){.discount-wheel{transition:none!important}}
+
+/* Work portfolio filters: restrained navigation, no changes to homepage cards. */
+.portfolio-filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:14px}
+.portfolio-filter{font-size:13px;font-weight:650;line-height:1.35;padding:11px 15px;min-height:43px;background:transparent;border:1px solid #cfd3ca;border-radius:999px;color:#354039;transition:background .2s,border-color .2s,color .2s}
+.portfolio-filter:hover{border-color:#516455;background:#ebece6}
+.portfolio-filter.is-active{background:#202821;color:#fff;border-color:#202821}
+.portfolio-count{font-size:13px;color:var(--muted);margin-bottom:22px}
+.portfolio-item[hidden]{display:none!important}
+.portfolio-grid .work-item:first-child{grid-row:auto}
+.portfolio-grid .work-item:first-child .work-media{height:auto;min-height:220px;aspect-ratio:1.6}
+@media(max-width:760px){.portfolio-filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;margin-right:-20px;padding-right:20px;padding-bottom:7px}.portfolio-filter{flex:none;max-width:240px;text-align:left;font-size:12px}.portfolio-grid .work-item:first-child .work-media{min-height:220px}}
+@media(prefers-reduced-motion:reduce){.portfolio-filter{transition:none}}

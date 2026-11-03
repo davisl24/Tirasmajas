@@ -41,7 +41,7 @@ const featuredWorkPhotos=[
  {folder:"jumti",file:"jumti-02.webp",label:"Jumta darbi"},
  {folder:"fasades",file:"fasades-01.webp",label:"Fasādes darbi"},
  {folder:"ieksdarbi",file:"ieksdarbi-03.webp",label:"Iekšdarbi"},
- {folder:"pamati",file:"pamati-01.webp",label:"Pamatu darbi"}
+ {folder:"inzeniertikli",file:"inzeniertikli-01.webp",label:"Inženierkomunikācijas"}
 ];
 function workCard(i){
  const photo=featuredWorkPhotos[i-1];if(!photo)return "";
@@ -56,7 +56,7 @@ function portfolioCard(photo,index){
  return '<article class="work-item portfolio-item" data-portfolio-category="'+photo.category+'"><button class="work-photo-trigger" type="button" data-portfolio-photo="'+index+'" aria-label="Palielināt foto: '+photo.label+'"><span class="work-media"><img class="work-photo" src="'+src+'" alt="'+photo.label+' — darbu fotogrāfija" loading="lazy" decoding="async" width="800" height="500"></span></button><div class="work-meta"><span>'+photo.label+'</span></div></article>';
 }
 function worksPage(){
- const filters='<div class="portfolio-filters" role="group" aria-label="Filtrēt darbus pēc pakalpojuma"><button type="button" class="portfolio-filter is-active" data-portfolio-filter="all" aria-pressed="true">Visi darbi</button>'+services.map(function(service){return '<button type="button" class="portfolio-filter" data-portfolio-filter="'+service.slug+'" aria-pressed="false">'+service.name+'</button>';}).join('')+'</div>';
+ const filters='<div class="portfolio-filters" role="group" aria-label="Filtrēt darbus pēc pakalpojuma"><button type="button" class="portfolio-filter is-active" data-portfolio-filter="all" aria-pressed="true">Visi darbi</button>'+services.filter(function(service){return (serviceGalleryPhotos[service.slug]||[]).length>0;}).map(function(service){return '<button type="button" class="portfolio-filter" data-portfolio-filter="'+service.slug+'" aria-pressed="false">'+service.name+'</button>';}).join('')+'</div>';
  return subHero("Mūsu darbi","")+'<section class="section works" id="visi-darbi"><div class="wrap">'+filters+'<p class="portfolio-count" id="portfolioCount" role="status" aria-live="polite">'+portfolioPhotos.length+' foto</p><div class="portfolio-carousel"><div class="works-grid full portfolio-grid" id="portfolioTrack" tabindex="0" aria-label="Darbu fotogrāfiju karuselis">'+portfolioPhotos.map(portfolioCard).join('')+'</div></div><div class="portfolio-controls"><span class="portfolio-hint">Pāršķir darbus</span><div class="portfolio-arrows"><button class="portfolio-arrow" type="button" data-portfolio-step="-1" aria-label="Iepriekšējie darbi">←</button><button class="portfolio-arrow" type="button" data-portfolio-step="1" aria-label="Nākamie darbi">→</button></div></div><div class="works-page-action"><a class="btn dark works-facebook" href="https://www.facebook.com/tirasmajas" target="_blank" rel="noopener noreferrer" aria-label="Apskatīt Tīras Mājas Facebook lapu">Vairāk darbu Facebook <span aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div></div></section>'+reviewsDemo()+contactSection();
 }
 function reviewsDemo(){const reviews=[{quote:"Manam īpašumam vajadzēja izveidot kanalizāciju. Puiši to izdarīja gan ēkas iekšienē, gan ārā. Darbs paveikts izcili un pēc darba teritorija sakopta.",author:"Andris",place:"Saulkrasti"},{quote:"Kā palīgus īpašuma teritorijas sakopšanā, komunikāciju atjaunošanā un citos darbos izvēlējos Tīras Mājas komandu. Darbs paveikts ātri un precīzi.",author:"Santa",place:"Mārupe"},{quote:"Puišiem var uzdot visa veida jautājumus. Pārsteidza tas, ka darbus izdarīja ļoti ātri, un rezultāts ir fantastisks.",author:"Mareks",place:"Valmiera"}];return '<section class="section reviews-demo"><div class="wrap"><div class="section-head"><h2>Klientu atsauksmes</h2></div><div class="review-grid">'+reviews.map(r=>'<article class="review-card"><p>“'+r.quote+'”</p><span class="review-person"><span class="review-avatar">'+r.author.charAt(0)+'</span><span>'+r.author+' · '+r.place+'</span></span></article>').join('')+'</div></div></section>';}
@@ -74,15 +74,65 @@ function taskCardIcon(slug,index){const name=(taskIconTypes[slug]||[])[index]||'
 const servicePreparationGuides={"pamati":["Kas jāizvērtē pirms pamatu darbiem?",[["Pamatu stāvoklis","Jānoskaidro, kur ir mitruma, plaisu vai citu bojājumu pazīmes un kas tās izraisa."],["Piekļuve pamatiem","Jāizvērtē, vai ap ēku ir vieta pamatu atrakšanai un materiālu piegādei."],["Mitruma novadīšana","Jānoskaidro, kur nonāk lietus un gruntsūdeņi un vai nepieciešami papildu risinājumi."]]],"fasades":["Kas jāizvērtē pirms fasādes darbiem?",[["Sienu tehniskais stāvoklis","Jānovērtē plaisas, atdalījies apmetums un mitruma pazīmes pirms apdares izvēles."],["Siltināšanas nepieciešamība","Jāizlemj, vai vajadzīgs tikai virsmas remonts vai arī ēkas ārsienu siltināšana."],["Piekļuve fasādei","Jāparedz vieta sastatnēm, materiālu piegādei un drošai darbu veikšanai."]]],"jumti":["Kas jāizvērtē pirms jumta darbiem?",[["Seguma un spāru stāvoklis","Jānoskaidro, vai bojāts tikai jumta segums vai arī nesošās konstrukcijas."],["Jumta materiāli","Jāizvērtē seguma veids un tā piemērotība esošajai jumta konstrukcijai."],["Piekļuve un laikapstākļi","Jāplāno droša piekļuve jumtam un ēkas aizsardzība darbu laikā."]]],"logi-durvis":["Kas jāizvērtē pirms logu un durvju nomaiņas?",[["Nomaiņa vai remonts","Jāpārbauda, vai problēmu iespējams novērst ar regulēšanu vai blīvējumu maiņu."],["Izmēri un konstrukcijas","Jāprecizē aiļu izmēri, vēršanās virziens un jaunā loga vai durvju risinājums."],["Aiļu apdare","Jāvienojas, kā atjaunot virsmas, kuras var tikt skartas demontāžas laikā."]]],"zemes-darbi":["Kas jāņem vērā pirms rakšanas darbiem?",[["Piekļuve tehnikai","Vai ekskavators var iebraukt teritorijā un droši piekļūt paredzētajai rakšanas vietai?"],["Pazemes komunikācijas","Pirms rakšanas jānoskaidro, kur atrodas elektrības kabeļi, ūdensvads un citi pazemes tīkli."],["Izraktās grunts novietošana","Jāparedz vieta, kur novietot izrakto zemi, vai jāvienojas par tās izvešanu."]]],"inzeniertikli":["Kas jānoskaidro pirms inženiertīklu izbūves?",[["Pieslēguma iespējas","Jānoskaidro, vai ir pieejami centralizētie tīkli vai jāparedz individuāla sistēma."],["Esošās komunikācijas","Jāzina esošo cauruļvadu atrašanās vietas un paredzētās pieslēgumu vietas."],["Tehniskās prasības","Ja vajadzīgs jauns pieslēgums, jāprecizē pakalpojuma sniedzēja nosacījumi un dokumentācija."]]],"gridas":["Kas jānoskaidro pirms grīdas izbūves?",[["Pamatnes stāvoklis","Jāizvērtē esošās grīdas pamatne un paredzētais jaunās grīdas augstums."],["Siltināšana un slāņi","Jānoskaidro, kādi siltuma un mitruma aizsardzības slāņi nepieciešami."],["Komunikācijas grīdā","Pirms betonēšanas jāsaskaņo cauruļu un citu paredzēto komunikāciju izvietojums."]]],"ieksdarbi":["Kas jāizplāno pirms iekšējās apdares darbiem?",[["Telpu plānojums","Jāvienojas par starpsienu, griestu un citu konstrukciju atrašanās vietām."],["Komunikāciju izvietojums","Pirms sienu un griestu aizvēršanas jāprecizē elektroinstalācijas un citas komunikācijas."],["Apdares rezultāts","Jāvienojas, līdz kādam gatavības līmenim virsmas jāsagatavo un kāda apdare paredzēta."]]]};
 /* Curated, duplicate-free gallery paths. Shared photos may illustrate related work.
    Original assets remain in their current folders. */
+// Photos recategorized after client feedback; filenames reflect original upload folders, not necessarily the work depicted.
 const serviceGalleryPhotos={
- "pamati":["pamati/pamati-01.webp","pamati/pamati-02.webp","raksanas-darbi/raksanas-darbi-01.webp","raksanas-darbi/raksanas-darbi-02.webp"],
- "fasades":["fasades/fasades-01.webp","fasades/fasades-02.webp","fasades/fasades-03.webp","fasades/fasades-04.webp","fasades/fasades-05.webp","fasades/fasades-06.webp","fasades/fasades-07.webp"],
- "jumti":["jumti/jumti-01.webp","jumti/jumti-03.webp","jumti/jumti-05.webp","jumti/jumti-07.webp","jumti/jumti-09.webp","jumti/jumti-12.webp","jumti/jumti-16.webp","jumti/jumti-19.webp"],
- "logi-durvis":["logi-durvis/logi-durvis-01.webp","logi-durvis/logi-durvis-02.webp","logi-durvis/logi-durvis-03.webp","logi-durvis/logi-durvis-04.webp"],
- "zemes-darbi":["raksanas-darbi/raksanas-darbi-01.webp","raksanas-darbi/raksanas-darbi-02.webp","pamati/pamati-01.webp","pamati/pamati-02.webp","inzeniertikli/inzeniertikli-01.webp","inzeniertikli/inzeniertikli-02.webp"],
- "inzeniertikli":["inzeniertikli/inzeniertikli-01.webp","inzeniertikli/inzeniertikli-02.webp","raksanas-darbi/raksanas-darbi-01.webp","raksanas-darbi/raksanas-darbi-02.webp"],
- "gridas":["gridas/gridas-01.webp","gridas/gridas-02.webp","gridas/gridas-03.webp","gridas/gridas-04.webp","gridas/gridas-05.webp","gridas/gridas-06.webp","gridas/gridas-07.webp"],
- "ieksdarbi":["ieksdarbi/ieksdarbi-01.webp","ieksdarbi/ieksdarbi-06.webp","ieksdarbi/ieksdarbi-12.webp","ieksdarbi/ieksdarbi-18.webp","ieksdarbi/ieksdarbi-24.webp","ieksdarbi/ieksdarbi-30.webp","ieksdarbi/ieksdarbi-37.webp","ieksdarbi/ieksdarbi-44.webp"]
+ "pamati": [],
+ "fasades": [
+  "fasades/fasades-01.webp",
+  "fasades/fasades-02.webp",
+  "fasades/fasades-03.webp",
+  "fasades/fasades-04.webp",
+  "fasades/fasades-05.webp",
+  "fasades/fasades-06.webp",
+  "fasades/fasades-07.webp"
+ ],
+ "jumti": [
+  "jumti/jumti-01.webp",
+  "jumti/jumti-03.webp",
+  "jumti/jumti-05.webp",
+  "jumti/jumti-07.webp",
+  "jumti/jumti-09.webp",
+  "jumti/jumti-12.webp",
+  "jumti/jumti-16.webp",
+  "jumti/jumti-19.webp"
+ ],
+ "logi-durvis": [
+  "logi-durvis/logi-durvis-01.webp",
+  "logi-durvis/logi-durvis-02.webp",
+  "logi-durvis/logi-durvis-03.webp",
+  "logi-durvis/logi-durvis-04.webp"
+ ],
+ "zemes-darbi": [
+  "raksanas-darbi/raksanas-darbi-01.webp",
+  "raksanas-darbi/raksanas-darbi-02.webp",
+  "raksanas-darbi/raksanas-darbi-03.webp"
+ ],
+ "inzeniertikli": [
+  "inzeniertikli/inzeniertikli-01.webp",
+  "inzeniertikli/inzeniertikli-02.webp",
+  "inzeniertikli/inzeniertikli-03.webp",
+  "inzeniertikli/inzeniertikli-04.webp",
+  "pamati/pamati-01.webp",
+  "pamati/pamati-02.webp"
+ ],
+ "gridas": [],
+ "ieksdarbi": [
+  "ieksdarbi/ieksdarbi-01.webp",
+  "ieksdarbi/ieksdarbi-06.webp",
+  "ieksdarbi/ieksdarbi-12.webp",
+  "ieksdarbi/ieksdarbi-18.webp",
+  "ieksdarbi/ieksdarbi-24.webp",
+  "ieksdarbi/ieksdarbi-30.webp",
+  "ieksdarbi/ieksdarbi-37.webp",
+  "ieksdarbi/ieksdarbi-44.webp",
+  "gridas/gridas-01.webp",
+  "gridas/gridas-02.webp",
+  "gridas/gridas-03.webp",
+  "gridas/gridas-04.webp",
+  "gridas/gridas-05.webp",
+  "gridas/gridas-06.webp",
+  "gridas/gridas-07.webp"
+ ]
 };
 const portfolioPhotos=services.flatMap(function(service){
  return (serviceGalleryPhotos[service.slug]||[]).map(function(path){
@@ -105,7 +155,7 @@ function detailPage(slug){
  const scope='<section class="section service-scope"><div class="wrap detail-layout"><div><h2>Kādi darbi ir iekļauti?</h2></div><div class="detail-details"><ul class="service-task-list">'+info.tasks.map(function(task,index){return '<li><article class="service-task-card"><span class="service-task-card-icon">'+taskCardIcon(slug,index)+'</span><div class="service-task-card-copy"><h3>'+task[0]+'</h3><p>'+task[1]+'</p></div></article></li>';}).join('')+'</ul></div></div></section>';
  const guide=servicePreparationGuides[slug];
  const preparation=guide?'<section class="section excavation-preparation"><div class="wrap"><div class="excavation-preparation-heading"><h2>'+guide[0]+'</h2></div><div class="excavation-preparation-list">'+guide[1].map(function(item,index){return '<div class="excavation-preparation-item"><span class="excavation-preparation-icon" aria-hidden="true">'+serviceNavIcon([4,5,0][index])+'</span><div><h3>'+item[0]+'</h3><p>'+item[1]+'</p></div></div>';}).join('')+'</div></div></section>':'';
- const proof='<section class="service-proof"><div class="wrap"><div class="service-gallery-heading"><h2>Darba piemēri</h2><div class="service-gallery-controls"><button type="button" class="gallery-arrow" data-gallery-step="-1" aria-label="Iepriekšējie foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button><button type="button" class="gallery-arrow" data-gallery-step="1" aria-label="Nākamie foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div></div><div class="service-gallery-track" tabindex="0" aria-label="Paveikto darbu fotogrāfiju galerija">'+serviceGallery(slug)+'</div></div></section>';
+ const proof=serviceGalleryPhotos[slug].length?'<section class="service-proof"><div class="wrap"><div class="service-gallery-heading"><h2>Darba piemēri</h2><div class="service-gallery-controls"><button type="button" class="gallery-arrow" data-gallery-step="-1" aria-label="Iepriekšējie foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button><button type="button" class="gallery-arrow" data-gallery-step="1" aria-label="Nākamie foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div></div><div class="service-gallery-track" tabindex="0" aria-label="Paveikto darbu fotogrāfiju galerija">'+serviceGallery(slug)+'</div></div></section>':'';
  const faq='<section class="section service-faq"><div class="wrap detail-layout"><h2>Kas jāzina pirms darbu uzsākšanas?</h2><div class="service-faq-items">'+info.faq.map(function(f){return '<details><summary>'+f[0]+'</summary><p>'+f[1]+'</p></details>';}).join('')+'</div></div></section>';
  const closing='<section class="service-detail-closing"><div class="wrap service-closing-inner"><div><h2>Nepieciešami '+(s.slug==="pamati"?"pamatu darbi":"šādi darbi")+'?</h2></div><div class="service-closing-actions">'+btn("Pieteikt apsekošanu","/kontakti","")+phone+'</div></div><div class="wrap"><div class="next-project"><a href="/pakalpojumi"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg> Visi pakalpojumi</a></div></div></section>';
  return hero+when+scope+preparation+proof+faq+closing;
